@@ -27,3 +27,6 @@ With all the new streaming services offered on the internet, trying to find good
 - Ability to search for title of media
 - Administrative features monitoring and editing user data and questions for user ratings
 - Implementation of a recommendation algorithm
+
+
+### Technologies and They Will be Used
