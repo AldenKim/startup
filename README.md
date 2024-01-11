@@ -32,7 +32,7 @@ With all the new streaming services offered on the internet, trying to find good
 ### Technologies and How They Will be Used
 - **HTML**: Good structure for HTML website. Multiple different HTML pages (login, picking movies already watched, recommendation list, etc.). Hyperlink usage for different streaming services.
 - **CSS**: Good styling for the best user experience. Use of colors to emphasize certain parts of the page. Good practices of whitespace and responsive design.
-- **JavaScript**: Will provide *Authentication*. Provides users with prompts to login or create an account, displays user info back, applies recommendations based on user input, and makes backend calls for data retrieval and making updates.
+- **JavaScript**: Will provide ***Authentication***. Provides users with prompts to login or create an account, displays user info back, applies recommendations based on user input, and makes backend calls for data retrieval and making updates.
 - **Backend Service**: Endpoints for logging in, retrieving user input of Movies/TV shows, handle user input of ratings, and manages user watchlist.
 - ***Database data***: Stores profiles, Movie/TV show ratings and watchlist. Ensures all user data is store securely. Movies that are shown to users are pulled from the database.
 - ***WebSocket***: Realtime updates that users make to their profile, watchlist, movie list, and ratings. Realtime data of movies recommended for the user. Potential Notification system so users can recieve updates on new updates or recommendations they may like.
