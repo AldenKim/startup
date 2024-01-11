@@ -29,4 +29,4 @@ With all the new streaming services offered on the internet, trying to find good
 - Implementation of a recommendation algorithm
 
 
-### Technologies and They Will be Used
+### Technologies and How They Will be Used
