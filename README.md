@@ -30,3 +30,7 @@ With all the new streaming services offered on the internet, trying to find good
 
 
 ### Technologies and How They Will be Used
+- **HTML**: Good structure for HTML website. Multiple different HTML pages (login, picking movies already watched, recommendation list, etc.). Hyperlink usage for different streaming services.
+- **CSS**: Good styling for the best user experience. Use of colors to emphasize certain parts of the page. Good practices of whitespace and responsive design.
+- **JavaScript**: Will provide *Authentication*. Provides users with prompts to login or create an account, displays user info back, applies recommendations based on user input, and makes backend calls for data retrieval and making updates.
+- **Backend Service**: 
