@@ -10,3 +10,5 @@ With all the new streaming services offered on the internet, trying to find good
 
 
 ### Website Rough Sketch
+
+![Website Sketch](https://github.com/AldenKim/startup/blob/main/MovieWebsite.JPG)
