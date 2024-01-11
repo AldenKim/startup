@@ -12,3 +12,18 @@ With all the new streaming services offered on the internet, trying to find good
 ### Website Rough Sketch
 
 ![Website Sketch](https://github.com/AldenKim/startup/blob/main/MovieWebsite.JPG)
+
+
+### Key Features
+
+- Secure login to ensure user security (HTTPS)
+- User ability to select movies they have watched before
+- User ability to rate movies to recieve personalized Movie/TV show recommendations
+- Provide direct links to streaming services that offer the Movie/TV show
+- Ability to add movies to a watchlist for future streaming
+- Ability to mark a movie as watched from watchlist to ensure more recommendations
+- Display of recommended Movies/TV shows in different categories
+- Persistent storage of user data
+- Ability to search for title of media
+- Administrative features monitoring and editing user data and questions for user ratings
+- Implementation of a recommendation algorithm
