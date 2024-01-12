@@ -35,5 +35,5 @@ With all the new streaming services offered on the internet, trying to find good
 - **JavaScript**: Will provide ***Authentication***. Provides users with prompts to login or create an account, displays user info back, applies recommendations based on user input, and makes backend calls for data retrieval and making updates.
 - **Backend Service**: Endpoints for logging in, retrieving user input of Movies/TV shows, handle user input of ratings, and manages user watchlist.
 - ***Database data***: Stores profiles, Movie/TV show ratings and watchlist. Ensures all user data is store securely. Movies that are shown to users are pulled from the database.
-- ***WebSocket***: Realtime updates that users make to their profile, watchlist, movie list, and ratings. Realtime data of movies recommended for the user. Potential Notification system so users can recieve updates on new updates or recommendations they may like.
+- ***WebSocket***: Realtime updates that users make to their profile, watchlist, movie list, and ratings. Realtime data of movies recommended for the user. Potential Notification system so users can recieve updates on new movies news or recommendations they may like.
 - **React**: Use the React framework for this website. Will provide a better and more interactive interface which will overall give a boost to the user experience on the website. 
