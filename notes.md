@@ -15,7 +15,7 @@ The assignment given today was **extremely** helpful in learning how to push, pu
 - Changed the Caddyfile to use this new domain name and use HTTPS
 - New URL is now https://mymovierecommendations.click/
 
-## HTML Struct
+## HTML Structure
 - Learned about the basic structural elements of HTML
 - Learned about adding hyperlinks <a> </a>
 - HTML tables
