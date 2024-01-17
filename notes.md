@@ -22,7 +22,13 @@ The assignment given today was **extremely** helpful in learning how to push, pu
 - HTML lists
 - Adding images to HTML
 
-# HTML input
+## HTML input
 - Learned about different input types
 - Learned about how to set up different input types
 - Changed and added input types
+
+## HTML media
+- Adding images
+- Adding Audio
+- Adding video
+- SVG and Canvas formatting
