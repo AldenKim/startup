@@ -21,3 +21,8 @@ The assignment given today was **extremely** helpful in learning how to push, pu
 - HTML tables
 - HTML lists
 - Adding images to HTML
+
+# HTML input
+- Learned about different input types
+- Learned about how to set up different input types
+- Changed and added input types
