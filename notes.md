@@ -32,3 +32,7 @@ The assignment given today was **extremely** helpful in learning how to push, pu
 - Adding Audio
 - Adding video
 - SVG and Canvas formatting
+
+## HTML startup
+- Deployed HTML Simon with my domain's simon subdomain (https://simon.mymovierecommendations.click/)
+
