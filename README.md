@@ -36,4 +36,7 @@ With all the new streaming services offered on the internet, trying to find good
 - **Backend Service**: Endpoints for logging in, retrieving user input of Movies/TV shows, handle user input of ratings, and manages user watchlist.
 - ***Database data***: Stores profiles, Movie/TV show ratings and watchlist. Ensures all user data is store securely. Movies that are shown to users are pulled from the database.
 - ***WebSocket***: Realtime updates that users make to their profile, watchlist, movie list, and ratings. Realtime data of movies recommended for the user. Potential notification system so users can recieve updates on movies, TV shows, application updates, and other recommendations they may like.
-- **React**: Use the React framework for this website. Will provide a better and more interactive interface which will overall give a boost to the user experience on the website. 
+- **React**: Use the React framework for this website. Will provide a better and more interactive interface which will overall give a boost to the user experience on the website.
+
+## HTML Deliverable
+- Cloned HTML simon repository and deployed it with deployment script so it is available with 'simon' sub domain (https://simon.mymovierecommendations.click/)
