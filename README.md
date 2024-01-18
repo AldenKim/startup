@@ -39,4 +39,4 @@ With all the new streaming services offered on the internet, trying to find good
 - **React**: Use the React framework for this website. Will provide a better and more interactive interface which will overall give a boost to the user experience on the website.
 
 ## HTML Deliverable
-- Cloned HTML simon repository and deployed it with deployment script so it is available with 'simon' sub domain (https://simon.mymovierecommendations.click/)
+- Cloned HTML simon repository and deployed it with deployment script so it is available with `simon` sub domain (https://simon.mymovierecommendations.click/)
