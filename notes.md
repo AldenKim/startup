@@ -37,7 +37,7 @@ The assignment given today was **extremely** helpful in learning how to push, pu
 - Deployed HTML Simon with my domain's `simon` subdomain (https://simon.mymovierecommendations.click/)
 - Added basic structure to index.html page
 - Added links to other pages for my startup
-- Formatting with HTML <br/> <hr/>
+- Formatting with HTML (breaks, hr /)
 - Inputs with HTML (buttons, checkboxes, radio buttons)
 - Links to other websites
 - Adding images
