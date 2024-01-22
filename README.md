@@ -42,3 +42,13 @@ With all the new streaming services offered on the internet, trying to find good
 
 ## HTML Deliverable
 - Cloned HTML simon repository and deployed it with deployment script so it is available with `simon` sub domain (https://simon.mymovierecommendations.click/)
+- Links to GitHub on application front page and others.
+- **HTML Pages**: HTML Pages for each component of Movie Recommendation startup
+- **HTML Tags**: Good use of HTML tags including BODY, NAV, MAIN, HEADER, FOOTER
+- **Links**: Links between all pages (index, ratings, recommendations, about, watchlist)
+- **Textual Content**: Application textual content added throughout.
+- **3rd Party Service**: Placeholders for 3rd party service calls such as pulling from news sources and informations form streaming services.
+- **Images**: Applications images added throughout.
+- **Logging in**: Placeholders for logging in and username display after login on the ratings page.
+- **Database**: Database data placeholders in multiple pages including watchlist, movie recommendation list, movies rate list, etc.
+- **Websocket**: Websocket data placeholders in multiple pages added, including checking who is online, see who is ratings, and other people's ratings.
