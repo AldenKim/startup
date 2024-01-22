@@ -8,7 +8,7 @@ The assignment given today was **extremely** helpful in learning how to push, pu
 - Assigned it an elastic IP
 - URL: http://44.221.183.152/
 - SSHed into the server
-- ssh -i D:/ComputerScience/CS260/aldenk.pem ubuntu@44.221.183.152
+- ssh -i pemkey ubuntu@44.221.183.152
 
 ## Domain name, HTTPS, TLS, Certificate
 - Created and leased a Domain name through AWS (Renew lease online) using the Route 53 service
