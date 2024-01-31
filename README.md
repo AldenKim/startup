@@ -52,3 +52,8 @@ With all the new streaming services offered on the internet, trying to find good
 - ***Logging in***: Placeholders for logging in and username display after login on the ratings page.
 - ***Database***: Database data placeholders in multiple pages including watchlist, movie recommendation list, movies rate list, etc.
 - ***Websocket***: Websocket data placeholders in multiple pages added, including checking who is online, see who is ratings, and other people's ratings.
+
+
+
+## CSS Deliverable
+- Clones CSS simon repository and deployed it with deployment script so it is available with `simon` sub domain (https://simon.mymovierecommendations.click/)
