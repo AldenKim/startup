@@ -6,6 +6,7 @@ body {
 
 header{
     flex: 0 80px;
+    background-color: green;
 }
 
 main {
@@ -14,12 +15,45 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    background-color: gray;
 }
 
 footer{
     flex: 0 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
 }
 
 footer a {
-    float: right
+    float: right;
 }
+
+menu{
+    flex: 1;
+    display: flex;
+    flex-direction: row !important;
+    list-style: none;
+}
+
+.navbar-brand{
+    padding-left: 0.3em;
+    border: solid black;
+    color: white
+}
+
+menu .nav-item{
+    padding: 0 0.3em;
+}
+
+@media (max-height: 600px) {
+    header {
+      display: none;
+    }
+    footer {
+      display: none;
+    }
+    main {
+      flex: 1 100vh;
+    }
+  }
