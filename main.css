@@ -10,7 +10,7 @@ header{
 }
 
 main {
-    flex: 1;
+    flex: 1 calc(100vh - 110px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,20 +18,28 @@ main {
     background-color: gray;
 }
 
+main div form button{
+    background-color: #04aa6d !important;
+    border-color: #04aa6d !important;
+}
+
 footer{
     flex: 0 30px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
+    background-color: #333;
+    color: white;
 }
 
 footer a {
     float: right;
+    color: white;
 }
 
 menu{
     flex: 1;
-    display: inline;
+    display: flex;
     flex-direction: row !important;
     list-style: none;
     background-color: #333;
