@@ -4,18 +4,14 @@ body {
     min-width: 375px;
 }
 
-header{
-    flex: 0 80px;
-    background-color: #333;
-}
-
 main {
     flex: 1 calc(100vh - 110px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    background-color: gray;
+    background-color: #121212;
+    color: white;
 }
 
 main div form button{
@@ -27,7 +23,7 @@ footer{
     flex: 0 30px;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 10px;
+    padding-top: 5px;
     background-color: #333;
     color: white;
 }
@@ -37,24 +33,27 @@ footer a {
     color: white;
 }
 
+header{
+    flex: 0 80px;
+    background-color: #333;
+}
+
 menu{
     flex: 1;
     display: flex;
     flex-direction: row !important;
     list-style: none;
+    list-style-type: none;
     background-color: #333;
 }
 
-li {
-    float: left;
-}
 
-menu li a{
+menu li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    padding: 14px 16px;
 }
 
 menu li a:hover{
@@ -75,7 +74,7 @@ menu li .active{
 }
 
 menu .nav-item{
-    padding: 0 0.3em;
+    padding: 0 0.4em;
     color: white;
 }
 
@@ -88,5 +87,6 @@ menu .nav-item{
     }
     main {
       flex: 1 100vh;
+      margin-top: 0;
     }
   }
