@@ -15,8 +15,9 @@ main {
 }
 
 main div form button{
-    background-color: #04aa6d !important;
-    border-color: #04aa6d !important;
+    color: black !important;
+    background-color: #1ce783 !important;
+    border-color: #1ce783 !important;
 }
 
 footer{
@@ -47,21 +48,26 @@ menu{
     background-color: #333;
 }
 
-
 menu li a {
     display: block;
     color: white;
     text-align: center;
     text-decoration: none;
-    padding: 14px 16px;
+    border-radius: 8px; 
+    padding: 5px;
+    margin: 5px; 
+    border: none;
 }
 
 menu li a:hover{
     background-color: #111;
+    width: auto;
 }
 
 menu li .active{
-    background-color: #04aa6d;
+    background-color: #1ce783;
+    color: black;
+    width: auto;
 }
 
 .navbar-brand{
