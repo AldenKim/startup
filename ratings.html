@@ -14,7 +14,7 @@
         />
 
         <link rel = "stylesheet" href = "main.css" />
-
+        <link rel = "stylesheet" href = "ratings.css" />
     </head>
     <body>
         <header>
@@ -46,25 +46,24 @@
                 User:
                 <span class = "user-name">Username</span>
             </div>
-            <ul class="notification">
-                <li class="user-name">Jim is online and rating</li>
-                <li class="user-name">Dwight is online</li>
-                <li class="user-name">Jim liked a movie</li>
-            </ul>
-            <br />
+            <div class="notification">
+                    <div class="user-notif"><span class = "user-name">Jim</span> is online and rating</div>
+                    <div class="user-notif"><span class = "user-name">Dwight</span> is online</div>
+                    <div class="user-notif"><span class = "user-name">Jim</span> liked a movie</div>
+            </div>
 
             <div class = "Updates">
                 Movie/TV show updates in the News:
             </div>
-            <ul class="notification">
-                <li class="Updates">Ryan Gosling cast as the new Mission impossible Lead</li>
-                <li class="Updates">Top Gun 3 Delayed for another Year</li>
-                <li class="Updates">Steven Yuen earns a high rating on his new movie</li>
-            </ul>
+            <div class="notification">
+                <div class="news">Ryan Gosling cast as the new Mission impossible Lead</div>
+                <div class="news">Top Gun 3 Delayed for another Year</div>
+                <div class="news">Steven Yuen earns a high rating on his new movie</div>
+            </div>
 
             <br />
             <div>
-                <legend>Mark Genres You Like</legend>
+                <legend>Mark Genres You Like:</legend>
                 <label for = "genre1">Comedies</label>
                 <input type = "checkbox" id = "checkboxGenre" name = "comedyCheckBox" value = "comedyCheckBox" />
                 <label for = "genre2">Action</label>
@@ -75,7 +74,7 @@
             <br />
             
             <div>
-                <p>Rate the Following:</p>
+                <legend>Rate the Following:</legend>
                 <div><b>Superbad 2007</b></div>
                 <img src= PhotosForWebsite/Comedy1.jpg width=200 alt = "Comedy">
                 <fieldset id = "group1">

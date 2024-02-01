@@ -1,0 +1,38 @@
+main{
+    align-items: normal;
+}
+
+.users{
+    flex: 1;
+    width: 100%;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.user-name{
+    color: #fede7e;
+    font-weight: bold;
+}
+
+.notification{
+    flex: 1;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.user-name{
+    text-align: left;
+}
+
+.Updates{
+    flex: 1;
+    width: 100%;
+    padding: 0.5em;
+    text-align: left;
+    font-weight: bold;
+}
+
+.news{
+    flex: 1;
+    text-align: left;
+}
