@@ -5,26 +5,42 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Movie Recommendations</title>
         <link rel="icon" href="favicon.ico" />
+
+        <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+        crossorigin="anonymous"
+        />
+
+        <link rel = "stylesheet" href = "main.css" />
     </head>
     <body>
         <header>
-            <h1>Movie Recommendations<sup>&reg;</sup></sup></h1>
-    
-            <nav>
-                <menu>
-                    <li><a href = "index.html"><u>Home Page</u></a></li>
-                    <li><a href="ratings.html">Rate Movies</a></li>
-                    <li><a href="recommendations.html">Recommendations List</a></li>
-                    <li><a href="watchlist.html">Watchlist</a></li>
-                    <li><a href = "about.html">About Page</a></li>
+            <nav class = "navbar">
+                <a class="navbar-brand" href="#">My Movie Recommendations<sup>&reg;</sup></a>
+                <menu class = "navbar-menu">
+                    <li class = "nav-item">
+                        <a class ="nav-link" href = "index.html">Home Page</a>
+                    </li>
+                    <li class = "nav-item"> 
+                        <a class = "nav-link" href="ratings.html">Rate Movies</a>
+                    </li>
+                    <li class = "nav-item"> 
+                        <a class = "nav-link active" href="recommendations.html">Recommendations List</a>
+                    </li>
+                    <li class = "nav-item"> 
+                        <a class = "nav-link" href="watchlist.html">Watchlist</a>
+                    </li>
+                    <li class = "nav-item"> 
+                        <a class = "nav-link" href = "about.html">About Page</a>
+                    </li>
                     <!-- Will add more links to more pages -->
                 </menu>
             </nav>
-
-            <hr />
         </header>
 
-        <main>
+        <main class = "container-fluid">
             <p>Your watchlist</p>
 
             <div>
@@ -46,8 +62,6 @@
             <form method = "get" action = "ratings.html">
                 <button type = "submit">Remove From Watchlist and Rate</button>
             </form>
-
-            <hr />
         </main>
 
         <footer>
