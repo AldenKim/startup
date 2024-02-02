@@ -1,0 +1,23 @@
+main{
+    align-items: normal;
+}
+
+.recommendation{
+    flex: 0 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+
+legend{
+    padding: 5px;
+} 
+
+@media (max-width: 768px) {
+    .recommendation {
+        flex-direction: column;
+    }
+}
+

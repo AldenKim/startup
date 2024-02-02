@@ -92,3 +92,9 @@ main{
 .rate:not(:checked) > label:before {
     content: '★ ';
 }
+
+@media (max-width: 768px) {
+    .rating-specific {
+        flex-direction: column;
+    }
+}
