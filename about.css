@@ -1,0 +1,30 @@
+main{
+    align-items: normal;
+}
+
+p{
+    text-align: center;
+}
+
+.quote-box{
+    margin-top: 1em;
+    padding: 0.5em;
+    border-radius: 5px;
+    text-align: center;
+}
+.picture_box1 img{
+    width: 350px;
+    border-radius: 8px;
+}
+.picture_box2 img{
+    width: 350px;
+    float: right;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .recommendation {
+        flex-direction: column;
+    }
+}
+
