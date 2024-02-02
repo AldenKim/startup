@@ -56,4 +56,15 @@ main{
     color: black !important;
     background-color: #1ce783 !important;
     border-color: #1ce783 !important;
+    margin-bottom: 25px;
+    margin-top: 13px;
+    margin-left: 10px;
+}
+
+
+.rating-specific{
+    flex: 0 50px;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
 }
