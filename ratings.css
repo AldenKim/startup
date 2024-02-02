@@ -7,6 +7,7 @@ main{
     width: 100%;
     padding: 0.5em;
     text-align: left;
+    font-weight: bold;
 }
 
 .user-name{
@@ -35,6 +36,8 @@ main{
 .news{
     flex: 1;
     text-align: left;
+    color: #fede7e;
+    font-weight: bold;
 }
 
 .form-check-input:checked{
