@@ -10,6 +10,16 @@ main{
     padding: 10px;
 }
 
+.Movie1{
+    text-align: center;
+}
+.Movie2{
+    text-align: center;
+}
+.Movie3{
+    text-align: center;
+}
+
 legend{
     padding: 5px;
 } 
