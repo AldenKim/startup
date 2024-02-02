@@ -51,3 +51,9 @@ main{
     border: 0;
     box-shadow: 0 0 0 0.1rem green !important;
  }
+
+ main form button{
+    color: black !important;
+    background-color: #1ce783 !important;
+    border-color: #1ce783 !important;
+}
