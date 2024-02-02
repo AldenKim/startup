@@ -1,0 +1,42 @@
+h1{
+    text-align: center;
+}
+
+.option{
+    text-align: center;
+    padding: 5px;
+}
+
+main form button{
+    color: black !important;
+    background-color: #1ce783 !important;
+    border-color: #1ce783 !important;
+    margin-bottom: 25px;
+    margin-top: 13px;
+    margin-left: 10px;
+}
+
+.form-check-input:checked{
+    background-color: #1ce783 !important;
+    border: 0;
+}
+
+.form-check-input:focus, .label::after, label.form-check-label:focus, .form-check-input::after, .form-check-input:not(:disabled):not(.disabled):active:focus {
+    color: black;
+    outline: 0;
+    border: 0;
+    box-shadow: 0 0 0 0.1rem green !important;
+ }
+
+@media (max-height: 600px) {
+    header {
+      display: none;
+    }
+    footer {
+      display: none;
+    }
+    main {
+      flex: 1 100vh;
+      margin-top: 0;
+    }
+  }
