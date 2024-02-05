@@ -6,6 +6,15 @@ p{
     text-align: center;
 }
 
+.about{
+    border-style: solid;
+    border-color: #1ce783;
+}
+.top{
+    border-bottom: solid;
+    border-color: #1ce783;
+}
+
 .quote-box{
     margin-top: 1em;
     padding: 0.5em;
@@ -14,6 +23,7 @@ p{
 }
 .picture_box1 img{
     width: 350px;
+    padding-bottom: 10px;
     border-radius: 8px;
 }
 .picture_box2 img{
