@@ -12,12 +12,15 @@ main{
 
 .Movie1{
     text-align: center;
+    padding:10px;
 }
 .Movie2{
     text-align: center;
+    padding: 10px;
 }
 .Movie3{
     text-align: center;
+    padding: 10px;
 }
 
 legend{
