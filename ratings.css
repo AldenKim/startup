@@ -61,6 +61,10 @@ main{
     margin-left: 10px;
 }
 
+img{
+    border-radius: 8px;
+}
+
 .rating-specific{
     flex: 0 50px;
     display: flex;
