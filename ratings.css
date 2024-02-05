@@ -98,3 +98,16 @@ main{
         flex-direction: column;
     }
 }
+
+@media (max-height: 600px) {
+    header {
+      display: grid;
+    }
+    footer {
+      display: none;
+    }
+    main {
+      flex: 1 100vh;
+      margin-top: 0;
+    }
+  }

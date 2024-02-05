@@ -30,7 +30,7 @@ main form button{
 
 @media (max-height: 600px) {
     header {
-      display: none;
+      display: grid;
     }
     footer {
       display: none;

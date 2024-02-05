@@ -38,9 +38,23 @@ body main a:hover{
 	padding-top: 2px;
 	box-shadow: none;
 }
+
 @media (max-width: 768px) {
     .recommendation {
         flex-direction: column;
     }
 }
+
+@media (max-height: 600px) {
+    header {
+      display: grid;
+    }
+    footer {
+      display: none;
+    }
+    main {
+      flex: 1 100vh;
+      margin-top: 0;
+    }
+  }
 
