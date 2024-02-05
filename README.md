@@ -57,3 +57,10 @@ With all the new streaming services offered on the internet, trying to find good
 
 ## CSS Deliverable
 - Clones CSS simon repository and deployed it with deployment script so it is available with `simon` sub domain (https://simon.mymovierecommendations.click/)
+- Link to GitHub on application front page and others
+- ***Header, footer, and main content body***: Styling of header, footer, and main content body throughout the website
+- ***Navigation Elements***: Proper styling of navigation elements at the top of the webpage
+- ***Responsive***: Webpage is responsive to window resizing
+- ***Application Elements***: Proper styling of all Web Application Elements
+- ***Application text content***: Proper styling of Web Application text content
+- ***Application Images***: Styling of all application images.
