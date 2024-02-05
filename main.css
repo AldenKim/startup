@@ -134,11 +134,34 @@ menu .nav-item{
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
     cursor: pointer;
-  }
+}
 
   .user-input button:hover, .user-input button:focus, .user-input button:active{
      background: #108048 !important;
+}
+
+@media (max-width: 768px){
+  menu {
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
   }
+
+  .navbar-brand{
+    display: none;
+  }
+
+  menu li {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  menu li a {
+    width: 100%;
+    
+  }
+}
 
 @media (max-height: 600px) {
     header {
