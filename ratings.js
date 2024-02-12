@@ -3,14 +3,43 @@ class Ratings{
     constructor(){
         const userName = document.querySelector('.user-name');
         userName.textContent = this.getUserName();
+        this.checkboxes = document.querySelectorAll('.form-check-input');
+        this.checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', () => {
+                this.updateCheckboxValues();
+            });
+        });
     }
 
     getUserName() {
         return localStorage.getItem('userName') ?? 'Unknown';
     }
+
+    updateCheckboxValues() {
+        // Reset checkboxValues array
+        this.checkboxValues = [];
+        // Iterate over checkboxes to check their state
+        this.checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                // If checkbox is checked, add its value to the array
+                this.checkboxValues.push(checkbox.value);
+            }
+        });
+    }
+
+    getCheckboxValues() {
+        return this.checkboxValues;
+    }
 }
 
 const ratings = new Ratings();
+
+document.querySelector('button[type="submit"]').addEventListener('click', function() {
+    event.preventDefault();
+    const checkboxValues = ratings.getCheckboxValues();
+    console.log('Checkbox values:', checkboxValues);
+    localStorage.setItem('checkboxValues', this.checkboxValues);
+});
 
 const MAX_MESSAGES = 3;
 const messageQueue = [];
