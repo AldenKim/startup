@@ -42,6 +42,24 @@ document.querySelector('button[type="submit"]').addEventListener('click', functi
     window.location.href = "recommendations.html";
 });
 
+document.querySelector('button[type="submit"]').addEventListener('click', function() {
+    event.preventDefault();
+    
+    const movie1Rating = document.querySelector('input[name="rate"]:checked').value;
+    const movie2Rating = document.querySelector('input[name="rate2"]:checked').value;
+    const movie3Rating = document.querySelector('input[name="rate3"]:checked').value;
+
+    console.log('Movie 1 Rating:', movie1Rating);
+    console.log('Movie 2 Rating:', movie2Rating);
+    console.log('Movie 3 Rating:', movie3Rating);
+    
+    localStorage.setItem('movie1Rating', movie1Rating);
+    localStorage.setItem('movie2Rating', movie2Rating);
+    localStorage.setItem('movie3Rating', movie3Rating);
+    
+    window.location.href = "recommendations.html";
+});
+
 const MAX_MESSAGES = 3;
 const messageQueue = [];
 const newsQueue = [];
