@@ -10,4 +10,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     favoriteGenresElement.style.color = '#fede7e';
     favoriteGenresElement.style.fontWeight = 'bold';
+
+    const movie1Rating = parseInt(localStorage.getItem('movie1Rating'));
+    const movie2Rating = parseInt(localStorage.getItem('movie2Rating'));
+    const movie3Rating = parseInt(localStorage.getItem('movie3Rating'));
+
+    const movieRatingsMap = {
+        'Movie1': movie1Rating,
+        'Movie2': movie2Rating,
+        'Movie3': movie3Rating
+    };
+
+    const recommendationContainer = document.querySelector('.recommendation');
+
+    const sortedMovies = Object.entries(movieRatingsMap)
+        .sort(([, rating1], [, rating2]) => rating2 - rating1)
+        .map(([movie, ]) => document.querySelector(`.${movie}`));
+
+    sortedMovies.forEach(movie => recommendationContainer.appendChild(movie));
 });
