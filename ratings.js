@@ -38,7 +38,8 @@ document.querySelector('button[type="submit"]').addEventListener('click', functi
     event.preventDefault();
     const checkboxValues = ratings.getCheckboxValues();
     console.log('Checkbox values:', checkboxValues);
-    localStorage.setItem('checkboxValues', this.checkboxValues);
+    localStorage.setItem('checkboxValues', checkboxValues);
+    window.location.href = "recommendations.html";
 });
 
 const MAX_MESSAGES = 3;
