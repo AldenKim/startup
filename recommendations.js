@@ -29,3 +29,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     sortedMovies.forEach(movie => recommendationContainer.appendChild(movie));
 });
+
+let watchlist = [];
+
+document.querySelectorAll('.recommendation button[type="submit"]').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const movieID = this.parentElement.parentElement.parentElement.querySelector('div').textContent;
+
+        watchlist.push(movieID);
+
+        console.log('Updated Watchlist:', watchlist);
+    });
+});
+
+document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+});
