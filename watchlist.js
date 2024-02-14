@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('watchlist', watchlist);
 
         console.log(watchlist.length)
-        if (watchlist.length === 0) {
+        if (watchlist.length === 0 || watchlist.length === 1) {
             labels[0].textContent = 'Nothing to see here';
             labels[0].style.display = 'inline-block';
         }

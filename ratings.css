@@ -61,6 +61,10 @@ main{
     margin-left: 10px;
 }
 
+main form button:hover, main form button:focus, main form button:active{
+    background: #108048 !important;
+}
+
 img{
     border-radius: 8px;
 }

@@ -23,6 +23,10 @@ main form button{
     text-align: center !important;
 }
 
+main form button:hover{
+  background: #108048 !important;
+}
+
 .form-check-input {
   display: none;
 }

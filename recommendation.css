@@ -46,6 +46,10 @@ body main a:hover{
 	box-shadow: none;
 }
 
+button:hover, button:active{
+    background: #108048 !important;
+}
+
 @media (max-width: 768px) {
     .recommendation {
         flex-direction: column;
