@@ -28,26 +28,40 @@ document.addEventListener('DOMContentLoaded', function() {
         .map(([movie, ]) => document.querySelector(`.${movie}`));
 
     sortedMovies.forEach(movie => recommendationContainer.appendChild(movie));
-});
 
-let watchlist = [];
+    let watchlist = localStorage.getItem('watchlist');
 
-document.querySelectorAll('.recommendation button[type="submit"]').forEach(button => {
-    button.addEventListener('click', function(event) {
-        event.preventDefault();
+    console.log(watchlist);
 
-        const movieID = this.parentElement.parentElement.parentElement.querySelector('div').textContent;
+    if(!watchlist) {
+        watchlist = [];
+    }
+    else{
+        watchlist = watchlist.split(',').filter(item => item.trim() !== '');
+    }
 
-        if (!watchlist.includes(movieID)) {
-            watchlist.push(movieID);
+    document.querySelectorAll('.recommendation button[type="submit"]').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            const movieID = this.parentElement.parentElement.parentElement.querySelector('div').textContent;
+
+            if (!watchlist.includes(movieID)) {
+                watchlist.push(movieID);
         
-            localStorage.setItem('watchlist', watchlist);
-        }
+                localStorage.setItem('watchlist', watchlist);
 
-        console.log('Updated Watchlist:', watchlist);
+                alert('Movie added to watchlist: ' + movieID);
+            }
+            else {
+                alert('Movie is already in the watchlist: ' + movieID);
+            }
+
+            console.log('Updated Watchlist:', watchlist);
+        });
     });
-});
 
-document.querySelector('form').addEventListener('submit', function(event) {
-    event.preventDefault();
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
+    });
 });
