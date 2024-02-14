@@ -38,9 +38,11 @@ document.querySelectorAll('.recommendation button[type="submit"]').forEach(butto
 
         const movieID = this.parentElement.parentElement.parentElement.querySelector('div').textContent;
 
-        watchlist.push(movieID);
+        if (!watchlist.includes(movieID)) {
+            watchlist.push(movieID);
         
-        localStorage.setItem('watchlist', watchlist);
+            localStorage.setItem('watchlist', watchlist);
+        }
 
         console.log('Updated Watchlist:', watchlist);
     });

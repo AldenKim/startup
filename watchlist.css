@@ -16,6 +16,10 @@ main form button{
     margin-left: 10px;
 }
 
+.form-check-input {
+  display: none;
+}
+
 .form-check-input:checked{
     background-color: #1ce783 !important;
     border: 0;
