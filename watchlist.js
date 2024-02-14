@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const label = checkboxes[index].parentElement.querySelector('.form-check-label');
                 label.textContent = movie;
                 checkboxes[index].style.display = 'inline-block'; // Show the checkbox
-                label.style.display = 'inline-block'; // Show the label
+                label.style.display = 'inline-block';
             }
         });
 

@@ -7,13 +7,20 @@ h1{
     padding: 5px;
 }
 
+main {
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+}
+
 main form button{
     color: black !important;
     background-color: #1ce783 !important;
     border-color: #1ce783 !important;
-    margin-bottom: 25px;
-    margin-top: 13px;
-    margin-left: 10px;
+    margin: 10px auto;
+    text-align: center !important;
 }
 
 .form-check-input {
