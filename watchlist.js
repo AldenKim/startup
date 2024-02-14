@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
             checkboxes[i].style.display = 'none';
         }
     } else {
-        const movies = watchlist.split(',');
+        const movies = watchlist.split(',').filter(movie => movie.trim() !== '');
         const numMovies = movies.length;
 
         // Display movies from the watchlist
         movies.forEach((movie, index) => {
-            if (index < checkboxes.length) {
+            if (index < checkboxes.length && movie !== ',') {
                 const label = checkboxes[index].parentElement.querySelector('.form-check-label');
                 label.textContent = movie;
                 checkboxes[index].style.display = 'inline-block'; // Show the checkbox
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 checkbox.style.display = 'none';
                 const label = checkbox.parentElement.querySelector('.form-check-label');
                 label.style.display = 'none';
-                label.textContent = ''; // Clear label text
+                label.textContent = '';
             }
         });
         watchlist = updatedWatchlist.join(',');
