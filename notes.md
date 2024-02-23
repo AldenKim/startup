@@ -48,7 +48,7 @@ The assignment given today was **extremely** helpful in learning how to push, pu
 - In HTML what does <div> do: Creates a division element
 - What is the order of the CSS box model, starting from outside going in: Margin, Border, padding, content
 - Document.queryselector('P').addEventListener('mouseover', console.log); Adds a mouseover event listener to a p element
-- HTML tag for an unordered list: <ul>
+- HTML tag for an unordered list: ul
 - Not valid JavaScript function: function f(x) = {}
 - Not a valid way to include JavaScript in HTML: <javascript> 1+1 </javascript>
 - Valid JavaScript object: { n:1 }
