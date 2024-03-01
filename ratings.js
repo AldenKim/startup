@@ -90,7 +90,7 @@ function displayMessages() {
     });
 }
 
-function displayNews() {
+/*function displayNews() {
     const newsContainer = document.querySelector('.news');
     newsContainer.innerHTML = ''; 
 
@@ -100,13 +100,13 @@ function displayNews() {
         newsElement.textContent = newsItem;
         newsContainer.appendChild(newsElement);
     });
-}
+}*/
 
-const sampleNews = [
+/*const sampleNews = [
     "Ryan Reynolds appears in new superbowl trailer",
     "LALALAND sequel announced",
     "Tom Cruise earns a high rating on his new movie"
-];
+];*/
 
 function generateRandomRating() {
     return Math.floor(Math.random() * 5) + 1;
@@ -119,9 +119,31 @@ setInterval(() => {
     displayMessages(); // Display messages
 }, 5000);
 
-setInterval(() => {
+/*setInterval(() => {
     const randomIndex = Math.floor(Math.random() * sampleNews.length);
     const randomNews = sampleNews[randomIndex];
     addNewsToQueue(randomNews); // Add news to the queue
     displayNews(); // Display news
-}, 5000);
+}, 5000);*/
+
+fetch('https://newsapi.org/v2/everything?q=movie&sortBy=popularity&apiKey=41d98d4d3d784d2a8b4a4c44bd6c6360')
+    .then(response => response.json())
+    .then(data => {
+        const articles = data.articles;
+        const newsContainer = document.querySelector('.news');
+
+        newsContainer.innerHTML = '';
+
+        articles.sort(() => Math.random() - 0.5);
+
+        for (let i = 0; i < Math.min(3, articles.length); i++) {
+            const article = articles[i];
+            const newsElement = document.createElement('div');
+            newsElement.classList.add('news-notif');
+            newsElement.textContent = article.title;
+            newsContainer.appendChild(newsElement);
+        }
+    })
+    .catch(error => {
+        console.error('Error fetching movie news:', error);
+    });
