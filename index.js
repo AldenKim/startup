@@ -16,17 +16,6 @@ app.use(express.static('public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-apiRouter.get('/user/:id', (req, res) => {
-    const userId = parseInt(req.params.id);
-    const user = users.find(user => user.id === userId);
-
-    if (!user) {
-        return res.status(404).json({ error: 'User not found' });
-    }
-
-    res.json(user);
-});
-
 apiRouter.post('/login', (req, res) => {
     const { username, password } = req.body;
 
@@ -43,6 +32,17 @@ apiRouter.post('/login', (req, res) => {
     }
 
     res.json({ message: 'Login successful', user });
+});
+
+apiRouter.get('/user/:username', (req, res) => {
+    const username = req.params.username;
+    const user = users.find(user => user.username === username);
+
+    if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(user);
 });
 
 app.listen(port, () => {

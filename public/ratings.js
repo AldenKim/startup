@@ -2,13 +2,24 @@
 class Ratings{
     constructor(){
         const userName = document.querySelector('.user-name');
-        userName.textContent = this.getUserName();
+        //userName.textContent = this.getUserName();
+        this.fetchUserData(this.getUserName());
         this.checkboxes = document.querySelectorAll('.form-check-input');
         this.checkboxes.forEach((checkbox) => {
             checkbox.addEventListener('change', () => {
                 this.updateCheckboxValues();
             });
         });
+    }
+
+    fetchUserData(userName) {
+        fetch(`/api/user/${userName}`)
+            .then(response => response.json())
+            .then(user => {
+                const userNameElement = document.querySelector('.user-name');
+                userNameElement.textContent = user.username;
+            })
+            .catch(error => console.error('Error fetching user data:', error));
     }
 
     getUserName() {
