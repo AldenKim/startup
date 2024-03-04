@@ -35,6 +35,7 @@ class Ratings{
                 this.checkboxValues.push(checkbox.value);
             }
         });
+        updateGenres(this.getUserName(), this.checkboxValues);
     }
 
     getCheckboxValues() {
@@ -132,3 +133,19 @@ fetch('https://newsapi.org/v2/everything?q=movie&sortBy=popularity&apiKey=41d98d
     .catch(error => {
         console.error('Error fetching movie news:', error);
     });
+
+function updateGenres(username, favoriteGenres) {
+    fetch(`/api/user/${username}/genres`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ genres: favoriteGenres })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Favorite genres updated:', data);
+            // You can perform additional actions after updating favorite genres if needed
+    })
+    .catch(error => console.error('Error updating favorite genres:', error));
+}
