@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const favoriteGenres = localStorage.getItem('checkboxValues');
+    /*const favoriteGenres = localStorage.getItem('checkboxValues');
     const favoriteGenresElement = document.getElementById('favoriteGenres');
     if (!favoriteGenres || favoriteGenres === 'undefined') {
         document.getElementById('favoriteGenres').textContent = 'No favorite genres selected.';
@@ -9,7 +9,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     favoriteGenresElement.style.color = '#fede7e';
-    favoriteGenresElement.style.fontWeight = 'bold';
+    favoriteGenresElement.style.fontWeight = 'bold';*/
+
+    fetch(`/api/user/${localStorage.getItem('userName')}/genres`)
+        .then(response => response.json())
+        .then(genres => {
+            const favoriteGenresElement = document.getElementById('favoriteGenres');
+            if (!genres || genres.length === 0) {
+                favoriteGenresElement.textContent = 'No favorite genres selected.';
+            } else {
+                favoriteGenresElement.textContent = genres.join(', ');
+            }
+
+            favoriteGenresElement.style.color = '#fede7e';
+            favoriteGenresElement.style.fontWeight = 'bold';
+        })
+        .catch(error => console.error('Error fetching favorite genres:', error));
 
     const movie1Rating = parseInt(localStorage.getItem('movie1Rating'));
     const movie2Rating = parseInt(localStorage.getItem('movie2Rating'));
