@@ -82,7 +82,23 @@ document.addEventListener('DOMContentLoaded', function() {
         
                 localStorage.setItem('watchlist', watchlist);
 
-                alert('Movie added to watchlist: ' + movieID);
+                fetch(`/api/user/${localStorage.getItem('userName')}/watchlist`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ watchlist: watchlist })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Watchlist updated successfully:', data);
+                    localStorage.setItem('watchlist', watchlist.join(',')); // Update local storage
+                    alert('Movie added to watchlist: ' + movieID);
+                })
+                .catch(error => {
+                    console.error('Error updating watchlist:', error);
+                    alert('Failed to add movie to watchlist');
+                });
             }
             else {
                 alert('Movie is already in the watchlist: ' + movieID);
