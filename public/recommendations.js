@@ -1,16 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    /*const favoriteGenres = localStorage.getItem('checkboxValues');
-    const favoriteGenresElement = document.getElementById('favoriteGenres');
-    if (!favoriteGenres || favoriteGenres === 'undefined') {
-        document.getElementById('favoriteGenres').textContent = 'No favorite genres selected.';
-    } else {
-        const genreArray = favoriteGenres.split(',').filter(genre => genre.trim() !== '');
-        document.getElementById('favoriteGenres').textContent = genreArray.join(', ');
-    }
-
-    favoriteGenresElement.style.color = '#fede7e';
-    favoriteGenresElement.style.fontWeight = 'bold';*/
-
     fetch(`/api/user/${localStorage.getItem('userName')}/genres`)
         .then(response => response.json())
         .then(genres => {
@@ -24,25 +12,53 @@ document.addEventListener('DOMContentLoaded', function() {
             favoriteGenresElement.style.color = '#fede7e';
             favoriteGenresElement.style.fontWeight = 'bold';
         })
-        .catch(error => console.error('Error fetching favorite genres:', error));
+        .catch(error => {
+            const favoriteGenres = localStorage.getItem('checkboxValues');
+            const favoriteGenresElement = document.getElementById('favoriteGenres');
+            if (!favoriteGenres || favoriteGenres === 'undefined') {
+                document.getElementById('favoriteGenres').textContent = 'No favorite genres selected.';
+            } else {
+                const genreArray = favoriteGenres.split(',').filter(genre => genre.trim() !== '');
+                document.getElementById('favoriteGenres').textContent = genreArray.join(', ');
+            }
 
-    const movie1Rating = parseInt(localStorage.getItem('movie1Rating'));
-    const movie2Rating = parseInt(localStorage.getItem('movie2Rating'));
-    const movie3Rating = parseInt(localStorage.getItem('movie3Rating'));
+            favoriteGenresElement.style.color = '#fede7e';
+            favoriteGenresElement.style.fontWeight = 'bold'
+        });
 
-    const movieRatingsMap = {
-        'Movie1': movie1Rating,
-        'Movie2': movie2Rating,
-        'Movie3': movie3Rating
-    };
+        fetch(`/api/user/${localStorage.getItem('userName')}/movieRatings`)
+        .then(response => response.json())
+        .then(movieRatings => {
+            const recommendationContainer = document.querySelector('.recommendation');
 
-    const recommendationContainer = document.querySelector('.recommendation');
+            const sortedMovies = Object.entries(movieRatings)
+                .sort(([, rating1], [, rating2]) => rating2 - rating1)
+                .map(([movie, ]) => document.querySelector(`.${movie}`));
 
-    const sortedMovies = Object.entries(movieRatingsMap)
-        .sort(([, rating1], [, rating2]) => rating2 - rating1)
-        .map(([movie, ]) => document.querySelector(`.${movie}`));
+            sortedMovies.forEach(movie => recommendationContainer.appendChild(movie));
+        })
+        .catch(error => {
+            console.error('Error fetching movie ratings:', error);
 
-    sortedMovies.forEach(movie => recommendationContainer.appendChild(movie));
+            // Use local storage to order movies if fetch fails
+            const movie1Rating = parseInt(localStorage.getItem('movie1Rating'));
+            const movie2Rating = parseInt(localStorage.getItem('movie2Rating'));
+            const movie3Rating = parseInt(localStorage.getItem('movie3Rating'));
+
+            const movieRatingsMap = {
+                'Movie1': movie1Rating,
+                'Movie2': movie2Rating,
+                'Movie3': movie3Rating
+            };
+
+            const recommendationContainer = document.querySelector('.recommendation');
+
+            const sortedMovies = Object.entries(movieRatingsMap)
+                .sort(([, rating1], [, rating2]) => rating2 - rating1)
+                .map(([movie, ]) => document.querySelector(`.${movie}`));
+
+            sortedMovies.forEach(movie => recommendationContainer.appendChild(movie));
+        });
 
     let watchlist = localStorage.getItem('watchlist');
 

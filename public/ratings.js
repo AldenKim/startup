@@ -50,7 +50,6 @@ document.querySelector('button[type="submit"]').addEventListener('click', functi
     const checkboxValues = ratings.getCheckboxValues();
     console.log('Checkbox values:', checkboxValues);
     localStorage.setItem('checkboxValues', checkboxValues);
-    window.location.href = "recommendations.html";
 });
 
 document.querySelector('button[type="submit"]').addEventListener('click', function() {
@@ -67,7 +66,11 @@ document.querySelector('button[type="submit"]').addEventListener('click', functi
     localStorage.setItem('movie1Rating', movie1Rating);
     localStorage.setItem('movie2Rating', movie2Rating);
     localStorage.setItem('movie3Rating', movie3Rating);
-    
+
+    updateMovieRatings(ratings.getUserName(), 'movie1', movie1Rating);
+    updateMovieRatings(ratings.getUserName(), 'movie2', movie2Rating);
+    updateMovieRatings(ratings.getUserName(), 'movie3', movie3Rating);
+
     window.location.href = "recommendations.html";
 });
 
@@ -148,4 +151,19 @@ function updateGenres(username, favoriteGenres) {
             // You can perform additional actions after updating favorite genres if needed
     })
     .catch(error => console.error('Error updating favorite genres:', error));
+}
+
+function updateMovieRatings(username, movie, rating) {
+    fetch(`/api/user/${username}/rate/${movie}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ rating: rating })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(`Rating for ${movie} updated successfully:`, data);
+    })
+    .catch(error => console.error(`Error updating rating for ${movie}:`, error));
 }
