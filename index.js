@@ -4,9 +4,9 @@ const app = express();
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 let users = [
-    { id: 1, username: 'user1', password: 'password1' , fav_genres: [], movieRatings: {}},
-    { id: 2, username: 'user2', password: 'password2' , fav_genres: [], movieRatings: {}},
-    { id: 3, username: 'user3', password: 'password3' , fav_genres: [], movieRatings: {}}
+    { id: 1, username: 'user1', password: 'password1' , fav_genres: [], movieRatings: {}, watchlist: []},
+    { id: 2, username: 'user2', password: 'password2' , fav_genres: [], movieRatings: {}, watchlist: []},
+    { id: 3, username: 'user3', password: 'password3' , fav_genres: [], movieRatings: {}, watchlist: []}
 ];
 
 app.use(express.json());
@@ -98,6 +98,31 @@ apiRouter.get('/user/:username/movieRatings', (req, res) => {
     }
 
     res.json(user.movieRatings);
+});
+
+apiRouter.get('/user/:username/watchlist', (req, res) => {
+    const username = req.params.username;
+    const user = users.find(user => user.username === username);
+
+    if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(user.watchlist);
+});
+
+apiRouter.post('/user/:username/watchlist', (req, res) => {
+    const username = req.params.username;
+    const { watchlist } = req.body;
+    const user = users.find(user => user.username === username);
+
+    if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+    }
+
+    user.watchlist = watchlist;
+
+    res.json({ message: 'Watchlist updated successfully', user });
 });
 
 app.listen(port, () => {
