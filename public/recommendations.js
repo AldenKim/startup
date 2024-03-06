@@ -30,12 +30,18 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(movieRatings => {
             const recommendationContainer = document.querySelector('.recommendation');
-
             const sortedMovies = Object.entries(movieRatings)
-                .sort(([, rating1], [, rating2]) => rating2 - rating1)
-                .map(([movie, ]) => document.querySelector(`.${movie}`));
+                .sort(([, rating1], [, rating2]) => parseInt(rating2) - parseInt(rating1)) // Sort by ratings
+                .map(([movie, rating]) => ({ movie, rating }));
 
-            sortedMovies.forEach(movie => recommendationContainer.appendChild(movie));
+            sortedMovies.forEach(({ movie }) => {
+                const movieElement = document.querySelector(`.${movie}`);
+                if (movieElement) {
+                    recommendationContainer.appendChild(movieElement);
+                } else {
+                    console.error(`Movie element not found for class: ${movie}`);
+                }
+            });
         })
         .catch(error => {
             console.error('Error fetching movie ratings:', error);

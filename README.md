@@ -76,3 +76,4 @@ With all the new streaming services offered on the internet, trying to find good
 - ***JavaScript support for future database data***: Added code to store user ratings, favorite genres, and store a watchlist. Display user's favorite genres on recommendations page, and switch movie elements based on user's highest rated move (i.e. if the user rated the action movie highest, then the action movie will be displayed on the far left of the recommendations page). Also display watchlist on the watchlist page.
 - ***JavaScript support for future Websocket***: On the ratings page, it will show user messages being created periodically with random ratings for movies and will also show random 3rd party messages from the news.
 - ***JavaScript support for application's interaction logic***: User's can interact with their ratings, recommendations page, and watchlist.
+
