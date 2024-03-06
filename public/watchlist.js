@@ -1,11 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     fetch(`/api/user/${localStorage.getItem('userName')}/watchlist`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(watchlist => {
             const checkboxes = document.querySelectorAll('.form-check-input');
             const labels = document.querySelectorAll('.form-check-label');
-        
-            if (!watchlist || watchlist.length === 0) {
+            console.log(Array.isArray(watchlist));
+            if (!watchlist || watchlist.length === 0|| !Array.isArray(watchlist)) {
                 const mainContainer = document.querySelector('.container-fluid');
                 labels[0].textContent = 'Nothing to see here';
                 for (let i = 1; i < labels.length; i++) {
@@ -13,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     checkboxes[i].style.display = 'none';
                 }
             } else {
-                const movies = watchlist.filter(movie => movie.trim() !== '');
+                const movies = watchlist;
                 const numMovies = movies.length;
 
                 movies.forEach((movie, index) => {

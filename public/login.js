@@ -65,17 +65,17 @@ function checkInputs() {
     fetch(`/api/user/${localStorage.getItem('userName')}`)
         .then(response => {
             if (response.status === 404) {
+                fetchSuccess = false;
                 alert("User not found. Please login again.");
                 localStorage.clear();
-                return false;
             }
-            return true;
+            return response.json();
         })
         .catch(error => {
             console.error('Error checking server status:', error);
             alert("An error occurred. Please try again later.");
-            return false;
+            fetchSuccess = false;
         });
 
-    return true;
+    return fetchSuccess;
 }

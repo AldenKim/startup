@@ -26,7 +26,7 @@ apiRouter.post('/login', (req, res) => {
     let user = users.find(user => user.username === username);
 
     if (!user) {
-        const newUser = { id: users.length + 1, username, password };
+        const newUser = { id: users.length + 1, username, password,fav_genres: [], movieRatings: {}, watchlist: [] };
         users.push(newUser);
         user = newUser;
     }

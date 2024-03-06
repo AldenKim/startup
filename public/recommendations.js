@@ -27,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         fetch(`/api/user/${localStorage.getItem('userName')}/movieRatings`)
-        .then(response => response.json())
         .then(movieRatings => {
             const recommendationContainer = document.querySelector('.recommendation');
             const sortedMovies = Object.entries(movieRatings)
