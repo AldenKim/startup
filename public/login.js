@@ -62,19 +62,5 @@ function checkInputs() {
         return false;
     }
 
-    fetch(`/api/user/${name}`)
-        .then(response => {
-            if (response.status === 404) {
-                alert("User not found. Please login again.");
-                return false;
-            }
-            return true;
-        })
-        .catch(error => {
-            console.error('Error checking server status:', error);
-            alert("An error occurred. Please try again later.");
-            return false;
-        });
-
     return true;
 }
