@@ -6,6 +6,8 @@
     window.location.href = "ratings.html";
 }*/
 
+let loginButtonClicked = localStorage.getItem('loginButtonClicked') === 'true' ? true : false;
+
 function login() {
     const name = document.querySelector("#name").value;
     const password = document.querySelector("#password").value;
@@ -30,8 +32,10 @@ function login() {
     .then(response => response.json())
     .then(result => {
         if (result && result.message === 'Login successful') {
+            localStorage.clear();
             localStorage.setItem("userName", name);
             window.location.href = "ratings.html";
+            localStorage.setItem('loginButtonClicked', true);
         } else {
             alert("Login failed. Please check your username and password.");
         }
@@ -40,4 +44,37 @@ function login() {
         console.error('Error during login:', error);
         alert("An error occurred during login. Please try again later.");
     });
+}
+
+function checkInputs() {
+    const name = document.querySelector("#name").value;
+    const password = document.querySelector("#password").value;
+
+    if (!name || !password) {
+        if(!localStorage.getItem('userName')) {
+            alert("Please enter both username and password.");
+            return false;
+        }
+    }
+
+    if (!loginButtonClicked) {
+        alert("Please login first.");
+        return false;
+    }
+
+    fetch(`/api/user/${name}`)
+        .then(response => {
+            if (response.status === 404) {
+                alert("User not found. Please login again.");
+                return false;
+            }
+            return true;
+        })
+        .catch(error => {
+            console.error('Error checking server status:', error);
+            alert("An error occurred. Please try again later.");
+            return false;
+        });
+
+    return true;
 }

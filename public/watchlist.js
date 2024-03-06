@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(watchlist => {
             const checkboxes = document.querySelectorAll('.form-check-input');
             const labels = document.querySelectorAll('.form-check-label');
-
+        
             if (!watchlist || watchlist.length === 0) {
                 const mainContainer = document.querySelector('.container-fluid');
                 labels[0].textContent = 'Nothing to see here';
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     checkboxes[i].style.display = 'none';
                 }
             } else {
-                const movies = watchlist.split(',').filter(movie => movie.trim() !== '');
+                const movies = watchlist.filter(movie => movie.trim() !== '');
                 const numMovies = movies.length;
 
                 movies.forEach((movie, index) => {
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Handle error if updating watchlist fails
                 });
 
-                if (updatedWatchlist.length === 0 || updatedWatchlist.length === 1) {
+                if (updatedWatchlist.length === 0) {
                     labels[0].textContent = 'Nothing to see here';
                     labels[0].style.display = 'inline-block';
                 }
