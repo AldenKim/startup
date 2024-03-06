@@ -77,3 +77,13 @@ With all the new streaming services offered on the internet, trying to find good
 - ***JavaScript support for future Websocket***: On the ratings page, it will show user messages being created periodically with random ratings for movies and will also show random 3rd party messages from the news.
 - ***JavaScript support for application's interaction logic***: User's can interact with their ratings, recommendations page, and watchlist.
 
+## Service Deliverable
+- Clone Service Simon repository and deployed it with deployment script so it is available with `simon` sub domain (https://simon.mymovierecommendations.click/)
+- Link to GitHub on application front page and others
+- Notes in README.md Files
+- At least 10 git commits
+- ***Create an HTTP service using Node.js and Express***: Fully converted startup application to a webservice using Node.js and Express
+- ***Frontend served up using Express static middleware***: Added all static files to a public folder and served it up using express
+- ***Frontend calls third party service endpoints***: Used a news API to display random news articles relating to movies (I could not find any free news apis to fit here, so the API works only locally, default behavior will display random messages as place holders) also on the about page, display random quotes using third party API.
+- ***Backend provides service endpoints***: Multiple service endpoints in the backend including placeholders for login, endpoints for a user's favorite genres, movie ratings, and watchlist.
+- ***Frontend calls your service endpoints***: Made sure that frontend now uses endpoints for information, including the user's favorite genres, ratings, and watchlist. 
