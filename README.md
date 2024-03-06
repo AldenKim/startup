@@ -84,6 +84,6 @@ With all the new streaming services offered on the internet, trying to find good
 - At least 10 git commits
 - ***Create an HTTP service using Node.js and Express***: Fully converted startup application to a webservice using Node.js and Express
 - ***Frontend served up using Express static middleware***: Added all static files to a public folder and served it up using express
-- ***Frontend calls third party service endpoints***: Used a news API to display random news articles relating to movies (I could not find any free news apis to fit here, so the API works only locally, default behavior will display random messages as place holders) also on the about page, display random quotes using third party API.
+- ***Frontend calls third party service endpoints***: Used a news API to display random news articles relating to movies (I could not find any free news apis to fit here, so the API works only locally, IT WILL SHOW AN ERROR CODE 426 WHICH SHOULD BE IGNORED, default behavior will display random messages as place holders) also on the about page, display random quotes using third party API.
 - ***Backend provides service endpoints***: Multiple service endpoints in the backend including placeholders for login, endpoints for a user's favorite genres, movie ratings, and watchlist.
 - ***Frontend calls your service endpoints***: Made sure that frontend now uses endpoints for information, including the user's favorite genres, ratings, and watchlist. 
