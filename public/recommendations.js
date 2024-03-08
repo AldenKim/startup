@@ -27,12 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         fetch(`/api/user/${localStorage.getItem('userName')}/movieRatings`)
+        .then(response => response.json())
         .then(movieRatings => {
             const recommendationContainer = document.querySelector('.recommendation');
             const sortedMovies = Object.entries(movieRatings)
-                .sort(([, rating1], [, rating2]) => parseInt(rating2) - parseInt(rating1)) // Sort by ratings
+                .sort(([, rating1], [, rating2]) => parseInt(rating2) - parseInt(rating1)) 
                 .map(([movie, rating]) => ({ movie, rating }));
-
+            console.log(sortedMovies);
             sortedMovies.forEach(({ movie }) => {
                 const movieElement = document.querySelector(`.${movie}`);
                 if (movieElement) {

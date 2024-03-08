@@ -97,6 +97,15 @@ apiRouter.get('/user/:username/movieRatings', (req, res) => {
         return res.status(404).json({ error: 'User not found' });
     }
 
+    if(!user.movieRatings) {
+        user.movieRatings = {};
+        
+        const movies = ['movie1', 'movie2', 'movie3'];
+        movies.forEach(movie => {
+            user.movieRatings[movie] = 0; 
+        });
+    }
+
     res.json(user.movieRatings);
 });
 
