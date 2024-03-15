@@ -40,6 +40,13 @@ main div form button{
     border-color: #1ce783 !important;
 }
 
+main div div button{
+  color: black !important;
+  background-color: #1ce783 !important;
+  border-color: #1ce783 !important;
+  margin-bottom: 10px !important;
+}
+
 footer{
     flex: 0 30px;
     padding-left: 20px;

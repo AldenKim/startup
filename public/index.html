@@ -33,13 +33,13 @@
             <div>
                 <h1>Welcome to My Movie Recommendations</h1>
                 <p>Login and Rate some movies</p>
-                <div class = "user-input" id = "loginControls" style = "display: none">
-                    <input type = "text" id = "name" placeholder = "Username" />
+                <div class = "user-input" id = "loginControls"  style="display: none">
+                    <input type = "text" id = "name" placeholder = "Username"/>
                     <input type = "password" id = "password" placeholder= "Password"/>
                     <button type = "button" class = "btn btn-primary" onclick="login()">Login and Rate</button>
-                    <button type = "button" class = "btn btn-primary" onclick="">Create User</button>
+                    <button type = "button" class = "btn btn-secondary" onclick="">Create User</button>
                 </div>
-                <div id="rateControls" style="display: none">
+                <div class = "user-input" id="rateControls" style="display: none">
                     <div id="Username"></div>
                     <button type="button" class="btn btn-primary" onclick="rate()">Rate</button>
                     <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
