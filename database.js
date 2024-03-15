@@ -16,15 +16,15 @@ const userCollection = db.collection('user');
     process.exit(1);
   });
 
-function getUser(username) {
-    return userCollection.findOne({ userName: username });
+function getUser(userName) {
+    return userCollection.findOne({ userName: userName });
 }
 
-async function createUser(username, password) {
+async function createUser(userName, password) {
     const passwordHash = await bcrypt.hash(password, 10);
 
     const user = {
-        userName: username,
+        userName: userName,
         password: passwordHash,
         token: uuid.v4(),
       };

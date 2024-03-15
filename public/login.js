@@ -4,7 +4,7 @@
     localStorage.setItem("userName", name.value);
     localStorage.setItem("password", password.value);
     window.location.href = "ratings.html";
-}*/
+}
 
 let loginButtonClicked = localStorage.getItem('loginButtonClicked') === 'true' ? true : false;
 
@@ -78,4 +78,15 @@ function checkInputs() {
         });
 
     return fetchSuccess;
+}*/
+
+function rate() {
+    window.location.href = 'ratings.html';
+}
+
+function logout() {
+    localStorage.removeItem('userName');
+    fetch(`/api/auth/logout`, {
+        method: 'delete',
+    }).then(() => (window.location.href = '/'));
 }

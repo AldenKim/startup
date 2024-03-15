@@ -24,10 +24,10 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/create', async (req, res) => {
-    if (await DB.getUser(req.body.username)) {
+    if (await DB.getUser(req.body.userName)) {
         res.status(409).send({ msg: 'Existing user' });
     } else {
-        const user = await DB.createUser(req.body.username, req.body.password);
+        const user = await DB.createUser(req.body.userName, req.body.password);
         
         setAuthCookie(res, user.token);
 
@@ -64,15 +64,21 @@ apiRouter.post('/auth/login', async (req, res) => {
     }
 });
 
-apiRouter.get('/user/:username', (req, res) => {
-    const username = req.params.username;
-    const user = users.find(user => user.username === username);
+apiRouter.delete('/auth/logout', (_req, res) => {
+    res.clearCookie(authCookieName);
+    res.status(204).end();
+})
 
-    if (!user) {
-        return res.status(404).json({ error: 'User not found' });
+apiRouter.get('/user/:username', async (req, res) => {
+    const user = await DB.getUser(req.params.username);
+
+    if (user) {
+        const token = req?.cookies.token;
+        res.send({ userName: user.userName, authenticated: token === user.token });
+        return;
     }
 
-    res.json(user);
+    res.status(404).json({ error: 'User not found' });
 });
 
 apiRouter.get('/user/:username/genres', (req, res) => {
