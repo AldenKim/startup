@@ -37,22 +37,31 @@ apiRouter.post('/auth/create', async (req, res) => {
     }
 });
 
-apiRouter.post('/login', (req, res) => {
+apiRouter.post('/auth/login', async (req, res) => {
     const { username, password } = req.body;
 
     if (!username || !password) {
         return res.status(400).json({ error: 'Username and password are required' });
     }
 
-    let user = users.find(user => user.username === username);
+    try {
+        let user = await DB.getUser(username);
 
-    if (!user) {
-        const newUser = { id: users.length + 1, username, password,fav_genres: [], movieRatings: {}, watchlist: [] };
-        users.push(newUser);
-        user = newUser;
+        if (!user) {
+            return res.status(401).json({ error: 'Invalid username or password' });
+        }
+
+        const passwordMatch = await bcrypt.compare(password, user.password);
+
+        if (!passwordMatch) {
+            return res.status(401).json({ error: 'Invalid username or password' });
+        }
+        setAuthCookie(res, user.token);
+        res.json({ message: 'Login successful', user });
+    } catch (error) {
+        console.error('Error during login:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
-
-    res.json({ message: 'Login successful', user });
 });
 
 apiRouter.get('/user/:username', (req, res) => {
