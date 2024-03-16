@@ -20,6 +20,10 @@ function getUser(userName) {
     return userCollection.findOne({ userName: userName });
 }
 
+function getUserByToken(token) {
+  return userCollection.findOne({ token: token })
+}
+
 async function createUser(userName, password) {
     const passwordHash = await bcrypt.hash(password, 10);
 
@@ -27,13 +31,18 @@ async function createUser(userName, password) {
         userName: userName,
         password: passwordHash,
         token: uuid.v4(),
+        fav_genres: [],
+        movieRatings: {},
+        watchlist: []
       };
 
     await userCollection.insertOne(user);
 
     return user;
 }
+
 module.exports = {
     getUser,
-    createUser
+    createUser,
+    getUserByToken
 }

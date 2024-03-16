@@ -83,9 +83,21 @@ apiRouter.get('/user/:userName', async (req, res) => {
     res.status(404).json({ error: 'User not found' });
 });
 
-apiRouter.get('/user/:username/genres', (req, res) => {
-    const username = req.params.username;
-    const user = users.find(user => user.username === username);
+var secureApiRouter = express.Router();
+apiRouter.use(secureApiRouter);
+
+secureApiRouter.use(async (req, res, next) => {
+    authToken = req.cookies[authCookieName];
+    const user = await DB.getUserByToken(authToken);
+    if (user) {
+      next();
+    } else {
+      res.status(401).send({ msg: 'Unauthorized' });
+    }
+});
+
+secureApiRouter.get('/user/:userName/genres', async (req, res) => {
+    const user = await DB.getUser(req.params.userName);
 
     if (!user) {
         return res.status(404).json({ error: 'User not found' });
@@ -94,10 +106,9 @@ apiRouter.get('/user/:username/genres', (req, res) => {
     res.json(user.fav_genres);
 });
 
-apiRouter.post('/user/:username/genres', (req, res) => {
-    const username = req.params.username;
+secureApiRouter.post('/user/:userName/genres', async (req, res) => {
     const { genres } = req.body;
-    const user = users.find(user => user.username === username);
+    const user = await DB.getUser(req.params.userName);
 
     if (!user) {
         return res.status(404).json({ error: 'User not found' });
