@@ -71,8 +71,8 @@ apiRouter.delete('/auth/logout', (_req, res) => {
     res.status(204).end();
 })
 
-apiRouter.get('/user/:username', async (req, res) => {
-    const user = await DB.getUser(req.params.username);
+apiRouter.get('/user/:userName', async (req, res) => {
+    const user = await DB.getUser(req.params.userName);
 
     if (user) {
         const token = req?.cookies.token;

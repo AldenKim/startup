@@ -16,7 +16,7 @@ class Ratings{
             .then(response => response.json())
             .then(user => {
                 const userNameElement = document.querySelector('.user-name');
-                userNameElement.textContent = user.username;
+                userNameElement.textContent = user.userName;
             })
             .catch(error => console.error('Error fetching user data:', error));
     }
