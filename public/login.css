@@ -1,0 +1,21 @@
+#Username {
+    color: #fede7e;
+    font-size: 1.5em;
+    padding: 0px;
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#Hello {
+    font-size: 1.5em;
+    padding: 0px;
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    margin: 0 auto;
+    text-align: center;
+}

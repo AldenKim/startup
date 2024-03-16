@@ -118,7 +118,7 @@ menu .nav-item{
     margin: 0 auto;
     padding: 20px;
     text-align: center;
-  }
+}
 
 
 .user-input input {
@@ -143,7 +143,7 @@ menu .nav-item{
     cursor: pointer;
 }
 
-  .user-input button:hover, .user-input button:focus, .user-input button:active{
+  .user-input button:hover, .user-input button:active{
      background: #108048 !important;
 }
 

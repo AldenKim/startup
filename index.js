@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 const DB = require('./database.js');
 
+const authCookieName = 'movieToken';
+
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 let users = [
@@ -25,7 +27,7 @@ app.use(`/api`, apiRouter);
 
 apiRouter.post('/auth/create', async (req, res) => {
     if (await DB.getUser(req.body.userName)) {
-        res.status(409).send({ msg: 'Existing user' });
+        res.status(409).send({ error: 'Existing user' });
     } else {
         const user = await DB.createUser(req.body.userName, req.body.password);
         
@@ -38,14 +40,14 @@ apiRouter.post('/auth/create', async (req, res) => {
 });
 
 apiRouter.post('/auth/login', async (req, res) => {
-    const { username, password } = req.body;
+    const { userName, password } = req.body;
 
-    if (!username || !password) {
+    if (!userName || !password) {
         return res.status(400).json({ error: 'Username and password are required' });
     }
 
     try {
-        let user = await DB.getUser(username);
+        let user = await DB.getUser(userName);
 
         if (!user) {
             return res.status(401).json({ error: 'Invalid username or password' });
@@ -176,7 +178,7 @@ function setAuthCookie(res, authToken) {
       httpOnly: true,
       sameSite: 'strict',
     });
-  }
+}
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

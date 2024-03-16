@@ -80,6 +80,47 @@ function checkInputs() {
     return fetchSuccess;
 }*/
 
+(async() => {
+    const userName = localStorage.getItem('userName');
+    if(userName) {
+        document.querySelector('#Username').textContent = userName;
+        setDisplay('loginControls', 'none');
+        setDisplay('rateControls', 'block');
+    } else{
+        setDisplay('loginControls', 'block');
+        setDisplay('rateControls', 'none');
+    }
+})();
+
+async function login() {
+    loginUserCreateUser(`/api/auth/login`);
+}
+
+async function create() {
+    loginUserCreateUser(`/api/auth/create`);
+}
+
+async function loginUserCreateUser(urlEndpoint) {
+    const userName = document.querySelector('#name')?.value;
+    const password = document.querySelector('#password')?.value;
+
+    const response = await fetch(urlEndpoint, {
+        method: 'post',
+        body: JSON.stringify({ userName: userName, password: password }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+    });
+
+    if(response.ok) {
+        localStorage.setItem('userName', userName);
+        window.location.href = 'ratings.html';
+    } else {
+        const errorMessage = await response.json();
+        alert(errorMessage.error);
+    }
+}
+
 function rate() {
     window.location.href = 'ratings.html';
 }
@@ -89,4 +130,20 @@ function logout() {
     fetch(`/api/auth/logout`, {
         method: 'delete',
     }).then(() => (window.location.href = '/'));
+}
+
+async function getUser(userName) {
+    const response = await fetch(`/api/user/${userName}`);
+    if (response.status === 200) {
+      return response.json();
+    }
+  
+    return null;
+}
+
+function setDisplay(controlId, display) {
+    const playControlEl = document.querySelector(`#${controlId}`);
+    if (playControlEl) {
+      playControlEl.style.display = display;
+    }
 }
