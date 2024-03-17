@@ -109,21 +109,19 @@ secureApiRouter.get('/user/:userName/genres', async (req, res) => {
 secureApiRouter.post('/user/:userName/genres', async (req, res) => {
     const { genres } = req.body;
     const user = await DB.getUser(req.params.userName);
-
     if (!user) {
         return res.status(404).json({ error: 'User not found' });
     }
 
-    user.fav_genres = genres;
+    DB.addFavGenres(req.params.userName, genres);
 
     res.json({ message: 'Favorite genres updated successfully', user });
 });
 
-apiRouter.post('/user/:username/rate/:movie', (req, res) => {
-    const username = req.params.username;
+secureApiRouter.post('/user/:userName/rate/:movie', async (req, res) => {
     const movie = req.params.movie;
     const rating = req.body.rating;
-    const user = users.find(user => user.username === username);
+    const user = await DB.getUser(req.params.userName);
 
     if (!user) {
         return res.status(404).json({ error: 'User not found' });

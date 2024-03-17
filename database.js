@@ -24,6 +24,13 @@ function getUserByToken(token) {
   return userCollection.findOne({ token: token })
 }
 
+function addFavGenres(userName, fav_genres) {
+  return userCollection.updateOne(
+    { userName: userName },
+    { $addToSet: { fav_genres: { $each: fav_genres } } }
+);
+}
+
 async function createUser(userName, password) {
     const passwordHash = await bcrypt.hash(password, 10);
 
@@ -44,5 +51,6 @@ async function createUser(userName, password) {
 module.exports = {
     getUser,
     createUser,
-    getUserByToken
+    getUserByToken,
+    addFavGenres
 }

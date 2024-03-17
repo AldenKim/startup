@@ -171,7 +171,6 @@ function updateGenres(username, favoriteGenres) {
     .then(response => response.json())
     .then(data => {
         console.log('Favorite genres updated:', data);
-            // You can perform additional actions after updating favorite genres if needed
     })
     .catch(error => console.error('Error updating favorite genres:', error));
 }
