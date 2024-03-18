@@ -131,14 +131,13 @@ secureApiRouter.post('/user/:userName/rate/:movie', async (req, res) => {
         user.movieRatings = {};
     }
 
-    user.movieRatings[movie] = rating;
+    DB.addMovieRating(req.params.userName, movie, rating);
 
     res.json({ message: `Rating for ${movie} updated successfully`, user });
 });
 
-apiRouter.get('/user/:username/movieRatings', (req, res) => {
-    const username = req.params.username;
-    const user = users.find(user => user.username === username);
+secureApiRouter.get('/user/:userName/movieRatings', async (req, res) => {
+    const user = await DB.getUser(req.params.userName);
 
     if (!user) {
         return res.status(404).json({ error: 'User not found' });
@@ -149,7 +148,7 @@ apiRouter.get('/user/:username/movieRatings', (req, res) => {
         
         const movies = ['movie1', 'movie2', 'movie3'];
         movies.forEach(movie => {
-            user.movieRatings[movie] = 0; 
+            DB.addMovieRating(req.params.userName, movie, 0);
         });
     }
 

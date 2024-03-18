@@ -32,7 +32,10 @@ function addFavGenres(userName, fav_genres) {
 }
 
 function addMovieRating(userName, movie, rating) {
-  
+  return userCollection.updateOne(
+    { userName: userName },
+    { $set: { [`movieRatings.${movie}`]: rating } }
+);
 }
 
 async function createUser(userName, password) {
@@ -56,5 +59,6 @@ module.exports = {
     getUser,
     createUser,
     getUserByToken,
-    addFavGenres
+    addFavGenres,
+    addMovieRating
 }
