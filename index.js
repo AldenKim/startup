@@ -155,9 +155,8 @@ secureApiRouter.get('/user/:userName/movieRatings', async (req, res) => {
     res.json(user.movieRatings);
 });
 
-apiRouter.get('/user/:username/watchlist', (req, res) => {
-    const username = req.params.username;
-    const user = users.find(user => user.username === username);
+secureApiRouter.get('/user/:userName/watchlist', async (req, res) => {
+    const user = await DB.getUser(req.params.userName);
 
     if (!user) {
         return res.status(404).json({ error: 'User not found' });
@@ -166,16 +165,15 @@ apiRouter.get('/user/:username/watchlist', (req, res) => {
     res.json(user.watchlist);
 });
 
-apiRouter.post('/user/:username/watchlist', (req, res) => {
-    const username = req.params.username;
+secureApiRouter.post('/user/:userName/watchlist', async (req, res) => {
     const { watchlist } = req.body;
-    const user = users.find(user => user.username === username);
+    const user = await DB.getUser(req.params.userName);
 
     if (!user) {
         return res.status(404).json({ error: 'User not found' });
     }
 
-    user.watchlist = watchlist;
+    DB.updateWatchlist(req.params.userName, watchlist);
 
     res.json({ message: 'Watchlist updated successfully', user });
 });

@@ -38,6 +38,13 @@ function addMovieRating(userName, movie, rating) {
 );
 }
 
+function updateWatchlist(userName, watchlist) {
+  return userCollection.updateOne(
+    { userName: userName },
+    { $set: { watchlist: watchlist } }
+);
+}
+
 async function createUser(userName, password) {
     const passwordHash = await bcrypt.hash(password, 10);
 
@@ -60,5 +67,6 @@ module.exports = {
     createUser,
     getUserByToken,
     addFavGenres,
-    addMovieRating
+    addMovieRating,
+    updateWatchlist
 }
