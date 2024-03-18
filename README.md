@@ -86,4 +86,15 @@ With all the new streaming services offered on the internet, trying to find good
 - ***Frontend served up using Express static middleware***: Added all static files to a public folder and served it up using express
 - ***Frontend calls third party service endpoints***: Used a news API to display random news articles relating to movies (I could not find any free news apis to fit here, so the API works only locally, IT WILL SHOW AN ERROR CODE 426 WHICH SHOULD BE IGNORED, default behavior will display random messages as place holders) also on the about page, display random quotes using third party API.
 - ***Backend provides service endpoints***: Multiple service endpoints in the backend including placeholders for login, endpoints for a user's favorite genres, movie ratings, and watchlist.
-- ***Frontend calls your service endpoints***: Made sure that frontend now uses endpoints for information, including the user's favorite genres, ratings, and watchlist. 
+- ***Frontend calls your service endpoints***: Made sure that frontend now uses endpoints for information, including the user's favorite genres, ratings, and watchlist.
+
+## Login Deliverable
+- Clone Login Simon repository and deployed it with deployment script so it is available with `simon` sub domain (https://simon.mymovierecommendations.click/)
+- Link to GitHub on application front page and others
+- Notes in README.md Files
+- At least 10 git commits
+- ***Supports New User Registration***: Allow users to make a new account to be able to login and access the other pages. Create user button allows them to do so. Stores token in cookies.
+- ***Supports existing user authentication***: Allows users to login to an already registered user on the homepage to access other pages. Stores token in cookies.
+- ***Stores application data in MongoDB***: All user information stored in mongoDB including User's favorite Genre, movie ratings, and watchlist.
+- ***Stores and retrieves credentials in MongoDB***: Does this in multiple instances, including logging in, registering, and getting user information. Also uses token stored in cookies to make sure credentials are valid. 
+- ***Restricts application functionality based upon authentication***: Does not allow a user to access other pages without registering a new user or loggin in with their existing credentials. 
