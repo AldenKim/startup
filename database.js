@@ -27,8 +27,12 @@ function getUserByToken(token) {
 function addFavGenres(userName, fav_genres) {
   return userCollection.updateOne(
     { userName: userName },
-    { $addToSet: { fav_genres: { $each: fav_genres } } }
+    { $set: { fav_genres: fav_genres } }
 );
+}
+
+function addMovieRating(userName, movie, rating) {
+  
 }
 
 async function createUser(userName, password) {
