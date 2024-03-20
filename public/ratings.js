@@ -189,3 +189,24 @@ function updateMovieRatings(username, movie, rating) {
     })
     .catch(error => console.error(`Error updating rating for ${movie}:`, error));
 }
+
+function configureSocket() {
+    const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+    this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    this.socket.onopen = (event) => {
+        this.displayMessage
+    }
+}
+
+function displayMessage(cls, from, msg) {
+
+}
+
+function broadcast (from, type, value) {
+    const event = {
+        from: from,
+        type: type,
+        value: value,
+    };
+    this.socket.send(JSON.stringify(event));
+}
