@@ -194,12 +194,16 @@ function configureSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     this.socket.onopen = (event) => {
-        this.displayMessage
+        this.displayMessage('system', 'rating', 'connected');
+    };
+    this.socket.onclose = (event) => {
+        this.
     }
 }
 
 function displayMessage(cls, from, msg) {
-
+    const chatText = document.querySelector('#messages')
+    chatText.innerHTML = `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
 }
 
 function broadcast (from, type, value) {
