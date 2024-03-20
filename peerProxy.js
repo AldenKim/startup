@@ -38,6 +38,18 @@ function peerProxy(server) {
         });
     });
 
+    wss.on('connection', (ws) => {
+        const connection = { id: uuid.v4(), alive: true, ws: ws }
+        connections.push(connection);
+    
+        ws.on('message', function message(data) {
+            connections.forEach((c) => {
+                c.ws.send(data);
+            });
+        });
+    
+    });
+
     setInterval(() => {
         connections.forEach((c) => {
             if(!c.alive) {
