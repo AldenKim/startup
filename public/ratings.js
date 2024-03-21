@@ -197,10 +197,10 @@ function configureSocket() {
     socket.onopen = (event) => {
         displayMessage('system', 'User', 'connected');
     };
-    this.socket.onclose = (event) => {
+    socket.onclose = (event) => {
         displayMessage('system', 'User', 'disconnected');
     };
-    this.socket.onmessage = async (event) => {
+    socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());
         switch(msg.type) {
             case 'movie_rating':
