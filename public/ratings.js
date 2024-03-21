@@ -195,16 +195,16 @@ function configureSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     this.socket.onopen = (event) => {
-        this.displayMessage('system', 'User', 'connected');
+        displayMessage('system', 'User', 'connected');
     };
     this.socket.onclose = (event) => {
-        this.displayMessage('system', 'User', 'disconnected');
+        displayMessage('system', 'User', 'disconnected');
     };
     this.socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());
         switch(msg.type) {
             case 'movie_rating':
-                this.displayMessage('user', msg.from, `rated ${msg.value} stars for ${msg.value.movie}`);
+                displayMessage('user', msg.from, `rated ${msg.value.rating} stars for ${msg.value.movie}`);
                 break;
             default:
                 console.error('Unknown message type:', msg.type);

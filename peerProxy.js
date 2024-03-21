@@ -18,36 +18,17 @@ function peerProxy(server) {
 
         ws.on('message', function message(data) {
             connections.forEach((c) => {
-                if (c.id !== connection.id) {
-                    c.ws.send(data);
-                }
+                c.ws.send(data);
             });
         });
 
         ws.on('close', () => {
-            connections.findIndex((o,i) => {
-                if(o.id === connection.id) {
-                    connections.splice(i,1);
-                    return true;
-                }
-            });
+            connections = connections.filter((c) => c.ws.readyState === ws.CLOSED);
         });
 
         ws.on('pong', () => {
             connection.alive = true;
         });
-    });
-
-    wss.on('connection', (ws) => {
-        const connection = { id: uuid.v4(), alive: true, ws: ws }
-        connections.push(connection);
-    
-        ws.on('message', function message(data) {
-            connections.forEach((c) => {
-                c.ws.send(data);
-            });
-        });
-    
     });
 
     setInterval(() => {
