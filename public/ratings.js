@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded', function() {
+    configureSocket();
+});
+
 class Ratings{
     constructor(){
         const userName = document.querySelector('.user-name');
@@ -226,5 +230,3 @@ function broadcast (from, type, value) {
     };
     socket.send(JSON.stringify(event));
 }
-
-configureSocket();
