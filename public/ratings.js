@@ -195,10 +195,10 @@ function configureSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
     this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     this.socket.onopen = (event) => {
-        this.displayMessage('system', 'rating', 'connected');
+        this.displayMessage('system', 'User', 'connected');
     };
     this.socket.onclose = (event) => {
-        this.displayMessage('system', 'rating', 'disconnected');
+        this.displayMessage('system', 'User', 'disconnected');
     };
     this.socket.onmessage = async (event) => {
         const msg = JSON.parse(await event.data.text());
