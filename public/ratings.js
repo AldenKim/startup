@@ -77,6 +77,7 @@ document.querySelector('button[type="submit"]').addEventListener('click', functi
 const MAX_MESSAGES = 3;
 const messageQueue = [];
 const newsQueue = [];
+let socket;
 
 function addMessageToQueue(message) {
     messageQueue.push(message);
@@ -193,7 +194,7 @@ function updateMovieRatings(username, movie, rating) {
 
 function configureSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-    const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
     socket.onopen = (event) => {
         displayMessage('system', 'User', 'connected');
     };
@@ -223,7 +224,7 @@ function broadcast (from, type, value) {
         type: type,
         value: value,
     };
-    this.socket.send(JSON.stringify(event));
+    socket.send(JSON.stringify(event));
 }
 
 configureSocket();
