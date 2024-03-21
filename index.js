@@ -9,12 +9,6 @@ const authCookieName = 'movieToken';
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
-let users = [
-    { id: 1, username: 'user1', password: 'password1' , fav_genres: [], movieRatings: {}, watchlist: []},
-    { id: 2, username: 'user2', password: 'password2' , fav_genres: [], movieRatings: {}, watchlist: []},
-    { id: 3, username: 'user3', password: 'password3' , fav_genres: [], movieRatings: {}, watchlist: []}
-];
-
 app.use(express.json());
 
 app.use(cookieParser());
