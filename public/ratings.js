@@ -193,8 +193,8 @@ function updateMovieRatings(username, movie, rating) {
 
 function configureSocket() {
     const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-    this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
-    this.socket.onopen = (event) => {
+    const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+    socket.onopen = (event) => {
         displayMessage('system', 'User', 'connected');
     };
     this.socket.onclose = (event) => {
