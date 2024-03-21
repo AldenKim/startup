@@ -204,7 +204,7 @@ function configureSocket() {
         const msg = JSON.parse(await event.data.text());
         switch(msg.type) {
             case 'movie_rating':
-                displayMessage('user', msg.from, `rated ${msg.value.rating} stars for ${msg.value.movie}`);
+                displayMessage('user', msg.from, `rated ${msg.value.movie} ${msg.value.rating} stars`);
                 break;
             default:
                 console.error('Unknown message type:', msg.type);
