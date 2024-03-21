@@ -92,7 +92,7 @@ function addNewsToQueue(news) {
     }
 }
 
-function displayMessages() {
+/*function displayMessages() {
     const chatText = document.querySelector('.notification');
     chatText.innerHTML = ''; // Clear existing messages
     
@@ -102,7 +102,7 @@ function displayMessages() {
         messageElement.innerHTML = message;
         chatText.appendChild(messageElement);
     });
-}
+}*/
 
 function displayNews() {
     const newsContainer = document.querySelector('.news');
@@ -126,12 +126,12 @@ function generateRandomRating() {
     return Math.floor(Math.random() * 5) + 1;
 }
 
-setInterval(() => {
+/*setInterval(() => {
     const rating = generateRandomRating();
     const message = `<span class="user-name">Pam</span> rated a movie ${rating} stars`;
     addMessageToQueue(message); // Add message to the queue
     displayMessages(); // Display messages
-}, 5000);
+}, 5000);*/
 
 fetch('https://newsapi.org/v2/everything?q=movie&sortBy=popularity&apiKey=41d98d4d3d784d2a8b4a4c44bd6c6360')
     .then(response => response.json())
@@ -186,6 +186,7 @@ function updateMovieRatings(username, movie, rating) {
     .then(response => response.json())
     .then(data => {
         console.log(`Rating for ${movie} updated successfully:`, data);
+        broadcast(username, 'movie_rating', { movie: movie, rating: rating });
     })
     .catch(error => console.error(`Error updating rating for ${movie}:`, error));
 }
@@ -197,7 +198,17 @@ function configureSocket() {
         this.displayMessage('system', 'rating', 'connected');
     };
     this.socket.onclose = (event) => {
-        this.
+        this.displayMessage('system', 'rating', 'disconnected');
+    };
+    this.socket.onmessage = async (event) => {
+        const msg = JSON.parse(await event.data.text());
+        switch(msg.type) {
+            case 'movie_rating':
+                this.displayMessage('user', msg.from, `rated ${msg.value} stars for ${msg.value.movie}`);
+                break;
+            default:
+                console.error('Unknown message type:', msg.type);
+        }
     }
 }
 
@@ -214,3 +225,5 @@ function broadcast (from, type, value) {
     };
     this.socket.send(JSON.stringify(event));
 }
+
+configureSocket();
