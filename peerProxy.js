@@ -23,7 +23,12 @@ function peerProxy(server) {
         });
 
         ws.on('close', () => {
-            connections = connections.filter((c) => c.ws.readyState === ws.CLOSED);
+            connections.findIndex((o,i) => {
+                if(o.id === connection.id) {
+                    connections.splice(i, 1);
+                    return true;
+                }
+            });
         });
 
         ws.on('pong', () => {

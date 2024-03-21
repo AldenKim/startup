@@ -213,7 +213,7 @@ function configureSocket() {
 }
 
 function displayMessage(cls, from, msg) {
-    const chatText = document.querySelector('#messages')
+    const chatText = document.querySelector('#messages');
     chatText.innerHTML = `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
 }
 
