@@ -75,7 +75,8 @@ document.querySelector('button[type="submit"]').addEventListener('click', functi
     updateMovieRatings(ratings.getUserName(), 'Movie2', movie2Rating);
     updateMovieRatings(ratings.getUserName(), 'Movie3', movie3Rating);
 
-    window.location.href = "recommendations.html";
+    //window.location.href = "recommendations.html";
+    alert("Ratings Submitted, continue to the recommendations page");
 });
 
 const MAX_MESSAGES = 3;
@@ -229,4 +230,8 @@ function broadcast (from, type, value) {
         value: value,
     };
     socket.send(JSON.stringify(event));
+}
+
+function recommendationPage() {
+    window.location.href = "recommendations.html";
 }
