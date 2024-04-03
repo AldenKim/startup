@@ -1,5 +1,5 @@
 main{
-    align-items: normal;
+    align-items: normal !important;
 }
 
 p{
@@ -22,11 +22,13 @@ p{
     border-radius: 5px;
     text-align: center;
 }
+
 .picture_box1 img{
     width: 350px;
     padding-bottom: 10px;
     border-radius: 8px;
 }
+
 .picture_box2 img{
     width: 350px;
     float: right;
