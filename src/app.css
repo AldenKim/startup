@@ -93,13 +93,22 @@ menu li a {
 
 menu li a:hover{
     background-color: #111;
+    color: white;
     width: auto;
 }
 
-menu li .active{
+menu li .active {
     background-color: #1ce783;
     color: black;
     width: auto;
+}
+
+.nav-link:focus{
+    color: black;
+}
+
+.nav-link:focus:hover {
+  color: white;
 }
 
 .navbar-brand{
