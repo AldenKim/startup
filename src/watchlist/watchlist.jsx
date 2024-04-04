@@ -145,28 +145,28 @@ export function Watchlist() {
     }, []);
 
     return (
-        <main class = "container-fluid">
+        <main className = "container-fluid">
             <div>
                 <h1>Your watchlist</h1>
-                <div class = "option">
-                    <label class = "form-check-label" for = "checkbox1"></label>
-                    <input class  = "form-check-input" type = "checkbox" id = "checkbox1" name="varCheckBox" value= "checkbox1"/>
+                <div className = "option">
+                    <label className = "form-check-label" for = "checkbox1"></label>
+                    <input className  = "form-check-input" type = "checkbox" id = "checkbox1" name="varCheckBox" value= "checkbox1"/>
                 </div>
 
-                <div class = "option">
-                    <label class = "form-check-label" for = "checkbox2"></label>
-                    <input class  = "form-check-input" type = "checkbox" id = "checkbox2" name="varCheckBox" value= "checkbox2"/>
+                <div className = "option">
+                    <label className = "form-check-label" for = "checkbox2"></label>
+                    <input className  = "form-check-input" type = "checkbox" id = "checkbox2" name="varCheckBox" value= "checkbox2"/>
                 </div>
 
-                <div class = "option">
-                    <label class = "form-check-label" for = "checkbox3"></label>
-                    <input class  = "form-check-input" type = "checkbox" id = "checkbox3" name="varCheckBox" value= "checkbox3"/>
+                <div className = "option">
+                    <label className = "form-check-label" for = "checkbox3"></label>
+                    <input className  = "form-check-input" type = "checkbox" id = "checkbox3" name="varCheckBox" value= "checkbox3"/>
                 </div>
             
 
                 <div>
                     <form method = "get">
-                        <button type = "submit" class = "btn btn-primary">Remove From Watchlist</button>
+                        <button type = "submit" className = "btn btn-primary">Remove From Watchlist</button>
                     </form>
                 </div>
             </div>
