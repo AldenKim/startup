@@ -26,6 +26,7 @@ p{
 .picture_box1 img{
     width: 350px;
     padding-bottom: 10px;
+    float: left;
     border-radius: 8px;
 }
 
