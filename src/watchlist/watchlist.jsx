@@ -164,7 +164,7 @@ export function Watchlist() {
                 </div>
             
 
-                <div>
+                <div className='watchlist-button-div'>
                     <form method = "get">
                         <button type = "submit" className = "btn btn-primary">Remove From Watchlist</button>
                     </form>

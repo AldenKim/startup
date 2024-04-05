@@ -1,5 +1,33 @@
-main{
+.ratings-main{
     align-items: normal;
+}
+
+.RatingMovie1{
+    text-align: start;
+    padding:10px;
+}
+.RatingMovie2{
+    text-align: start;
+    padding: 10px;
+}
+.RatingMovie3{
+    text-align: start;
+    padding: 10px;
+}
+.Checkboxes{
+    text-align: start;
+}
+.rating-label {
+    text-align: start;
+}
+
+main button {
+    color: black !important;
+    background-color: #1ce783 !important;
+    border-color: #1ce783 !important;
+    margin-bottom: 25px;
+    margin-top: 13px;
+    margin-left: 10px;
 }
 
 .users{

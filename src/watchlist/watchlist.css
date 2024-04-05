@@ -21,6 +21,11 @@ main form button{
     border-color: #1ce783 !important;
     margin: 10px auto;
     text-align: center !important;
+    align-items: center !important;
+}
+
+.watchlist-button-div {
+  text-align: center;
 }
 
 main form button:hover{
