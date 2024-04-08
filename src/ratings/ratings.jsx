@@ -225,7 +225,7 @@ export function Ratings(props) {
             <div className="rating-specific">
                 <div className="RatingMovie1">
                     <div><b>Superbad 2007</b></div>
-                    <img src="PhotosForWebsite/Comedy1.jpg" width="200" alt="Comedy" className="MoviePhoto" />
+                    <img src="/Comedy1.jpg" width="200" alt="Comedy" className="MoviePhoto" />
                     <legend>Rate 1 out of 5</legend>
                     <div className="rate">
                         <input type="radio" id="star5" name="rate" value="5" />
@@ -243,7 +243,7 @@ export function Ratings(props) {
 
                 <div className="RatingMovie2">
                     <div><b>Spiderman 2023</b></div>
-                    <img src="PhotosForWebsite/Action1.jpg" width="200" alt="Action" className="MoviePhoto" />
+                    <img src="/Action1.jpg" width="200" alt="Action" className="MoviePhoto" />
                     <legend>Rate 1 out of 5</legend>
                     <div className="rate2">
                         <input type="radio" id="star5-2" name="rate2" value="5" />
@@ -261,7 +261,7 @@ export function Ratings(props) {
                 
                 <div className="RatingMovie3">
                     <div><b>The Notebook 2004</b></div>
-                    <img src="PhotosForWebsite/Romance1.jpg" width="200" alt="Romance" className="MoviePhoto" />
+                    <img src="/Romance1.jpg" width="200" alt="Romance" className="MoviePhoto" />
                     <legend>Rate 1 out of 5</legend>
                     <div className="rate3">
                         <input type="radio" id="star5-3" name="rate3" value="5" />

@@ -131,7 +131,7 @@ export function Recommendations() {
             <div className="recommendation">
                 <div className="Movie1" id="21_Jump_Street">
                     <div>21 Jump Street</div>
-                    <img src="PhotosForWebsite/Comedy2.jpg" width={200} alt="Comedy" />
+                    <img src="/Comedy2.jpg" width={200} alt="Comedy" />
                     <div className="thirdParty1"><a href="https://www.hulu.com/welcome?orig_referrer=https%3A%2F%2Fwww.google.com%2F">Hulu (and 3rd Party info)</a></div>
                     <div>
                         <form method="get" action="watchlist.html">
@@ -142,7 +142,7 @@ export function Recommendations() {
 
                 <div className="Movie2" id="Extraction_2">
                     <div>Extraction 2</div>
-                    <img src="PhotosForWebsite/Action2.jpg" width={200} alt="Action" />
+                    <img src="/Action2.jpg" width={200} alt="Action" />
                     <div className="thirdParty2"><a href="https://www.netflix.com/">Netflix (and 3rd Party info)</a></div>
                     <div>
                         <form method="get" action="watchlist.html">
@@ -153,7 +153,7 @@ export function Recommendations() {
 
                 <div className="Movie3" id="The_Titanic">
                     <div>Titanic</div>
-                    <img src="PhotosForWebsite/Romance2.jpg" width={200} alt="Romance" />
+                    <img src="/Romance2.jpg" width={200} alt="Romance" />
                     <div className="thirdParty3"><a href="https://www.paramountplus.com/">Paramount (and 3rd Party info)</a></div>
                     <div>
                         <form method="get" action="watchlist.html">

@@ -20,7 +20,7 @@ export function About() {
 
     return (
         <main className = "container-fluid">
-            <div id = "picture1" className = "picture_box1"><img src = "PhotosForWebsite/movieposters.jpeg" alt = "movie posters" /></div>
+            <div id = "picture1" className = "picture_box1"><img src = "/movieposters.jpeg" alt = "movie posters" /></div>
             <div className = "about">
                 <p className="top">
                     This Movie Recommendations app will allow you to rate movies, make a list of movies for a watchlist,
@@ -39,7 +39,7 @@ export function About() {
             </div>
             <br />
 
-            <div id = "picture2" className = "picture_box2"><img src = "PhotosForWebsite/characterlineup.jpeg" alt = "movie characters" /></div>
+            <div id = "picture2" className = "picture_box2"><img src = "/characterlineup.jpeg" alt = "movie characters" /></div>
         </main>
     );
 }
