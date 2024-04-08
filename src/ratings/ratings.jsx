@@ -102,7 +102,7 @@ export function Ratings({recommendationPage}) {
                 <button type="submit" className="btn btn-primary" id="submission">Submit Ratings</button>
             </form>
             <form className = "ratings-button-2" method = "get">
-                <button type = "button" class = "btn btn-primary" id = "continue" onclick={recommendationPage}>Continue</button>
+                <button type = "button" className = "btn btn-primary" id = "continue" onClick={recommendationPage}>Continue</button>
             </form>
         </main>
     );

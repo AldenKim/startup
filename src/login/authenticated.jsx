@@ -23,8 +23,8 @@ export function Authenticated (props) {
         <div>
             <div id = "Hello">Hello: </div>
             <div className = 'userName' id="Username">{props.userName}</div>
-            <button type="button" class="btn btn-primary" onclick={() => navigate('/rate')}>Rate</button>
-            <button type="button" class="btn btn-secondary" onclick={() => logout()}>Logout</button>
+            <button type="button" className="rateBtn btn btn-primary" onClick={() => navigate('/ratings')}>Rate</button>
+            <button type="button" className="logoutBtn btn btn-secondary" onClick={() => logout()}>Logout</button>
         </div>
     );
 }
