@@ -5,6 +5,187 @@ import { useNavigate } from 'react-router-dom';
 
 export function Ratings(props) {
     const navigate = useNavigate();
+    const [newsMessages, setNewsMessages] = React.useState([]);
+    const MAX_MESSAGES = 3;
+    const newsQueue = [];
+    let checkboxValues = [];
+    let checkboxes;
+    let socket;
+    React.useEffect(() => {
+        checkboxes = document.querySelectorAll('.form-check-input');
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', () => {
+                updateCheckboxValues();
+            });
+        });
+        fetchNews();
+        configureSocket();
+    }, []); 
+
+    function submitAll() {
+        event.preventDefault();
+        const checkBoxVals = getCheckboxValues();
+        console.log('Checkbox values:', checkBoxVals);
+        localStorage.setItem('checkboxValues', checkBoxVals);
+
+        const movie1Rating = document.querySelector('input[name="rate"]:checked').value;
+        const movie2Rating = document.querySelector('input[name="rate2"]:checked').value;
+        const movie3Rating = document.querySelector('input[name="rate3"]:checked').value;
+
+        console.log('Movie 1 Rating:', movie1Rating);
+        console.log('Movie 2 Rating:', movie2Rating);
+        console.log('Movie 3 Rating:', movie3Rating);
+        
+        localStorage.setItem('movie1Rating', movie1Rating);
+        localStorage.setItem('movie2Rating', movie2Rating);
+        localStorage.setItem('movie3Rating', movie3Rating);
+
+        updateMovieRatings(props.userName, 'Movie1', movie1Rating);
+        updateMovieRatings(props.userName, 'Movie2', movie2Rating);
+        updateMovieRatings(props.userName, 'Movie3', movie3Rating);
+
+        alert("Ratings Submitted, continue to the recommendations page");
+    }
+
+    function updateCheckboxValues() {
+        
+        checkboxValues = [];
+        
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                
+                checkboxValues.push(checkbox.value);
+            }
+        });
+        updateGenres(props.userName, checkboxValues);
+    }
+
+    function getCheckboxValues() {
+        return checkboxValues;
+    }
+
+    function updateGenres(username, favoriteGenres) {
+        fetch(`/api/user/${username}/genres`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ genres: favoriteGenres })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Favorite genres updated:', data);
+        })
+        .catch(error => console.error('Error updating favorite genres:', error));
+    }
+
+    function updateMovieRatings(username, movie, rating) {
+        fetch(`/api/user/${username}/rate/${movie}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ rating: rating })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(`Rating for ${movie} updated successfully:`, data);
+            broadcast(username, 'movie_rating', { movie: movie, rating: rating });
+        })
+        .catch(error => console.error(`Error updating rating for ${movie}:`, error));
+    }
+
+    function addNewsToQueue(news) {
+        newsQueue.push(news);
+        if(newsQueue.length > MAX_MESSAGES) {
+            newsQueue.shift();
+        }
+    }
+
+    function displayNews() {
+        const newsContainer = document.querySelector('.news');
+        newsContainer.innerHTML = ''; 
+    
+        newsQueue.forEach(newsItem => {
+            const newsElement = document.createElement('div');
+            newsElement.classList.add('news-notif');
+            newsElement.textContent = newsItem;
+            newsContainer.appendChild(newsElement);
+        });
+    }
+
+    const sampleNews = [
+        "Ryan Reynolds appears in new superbowl trailer",
+        "LALALAND sequel announced",
+        "Tom Cruise earns a high rating on his new movie"
+    ];
+
+    function fetchNews() {
+        fetch('https://newsapi.org/v2/everything?q=movie&sortBy=popularity&apiKey=41d98d4d3d784d2a8b4a4c44bd6c6360')
+        .then(response => response.json())
+        .then(data => {
+            const articles = data.articles;
+            const newsContainer = document.querySelector('.news');
+    
+            newsContainer.innerHTML = '';
+    
+            articles.sort(() => Math.random() - 0.5);
+    
+            for (let i = 0; i < Math.min(3, articles.length); i++) {
+                const article = articles[i];
+                const newsElement = document.createElement('div');
+                newsElement.classList.add('news-notif');
+                newsElement.textContent = article.title;
+                newsContainer.appendChild(newsElement);
+            }
+        })
+        .catch(error => {
+            setInterval(() => {
+                const randomIndex = Math.floor(Math.random() * sampleNews.length);
+                const randomNews = sampleNews[randomIndex];
+                addNewsToQueue(randomNews); // Add news to the queue
+                displayNews(); // Display news
+            }, 5000);
+        });
+    }
+
+    function configureSocket() {
+        const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+        socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+
+        socket.onopen = (event) => {
+            displayMessage('system', 'User', 'connected');
+        };
+
+        socket.onclose = (event) => {
+            displayMessage('system', 'User', 'disconnected');
+        };
+
+        socket.onmessage = async (event) => {
+            const msg = JSON.parse(await event.data.text());
+            switch(msg.type) {
+                case 'movie_rating':
+                    displayMessage('user', msg.from, `rated ${msg.value.movie} ${msg.value.rating} stars`);
+                    break;
+                default:
+                    console.error('Unknown message type:', msg.type);
+            }
+        };
+    }
+
+    function displayMessage(cls, from, msg) {
+        const chatText = document.querySelector('#messages');
+        chatText.innerHTML = `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
+    }
+
+    function broadcast(from, type, value) {
+        const event = {
+            from: from,
+            type: type,
+            value: value,
+        };
+        socket.send(JSON.stringify(event));
+    }
 
     return (
         <main className="ratings-main container-fluid">
@@ -17,9 +198,9 @@ export function Ratings(props) {
                 Movie/TV show updates in the News:
             </div>
             <div className="news">
-                <div className="news-notif"></div>
-                <div className="news-notif"></div>
-                <div className="news-notif"></div>
+                {newsMessages.map((news, index) => (
+                    <div key={index} className="news-notif">{news}</div>
+                ))}
             </div>
 
             <br />
@@ -97,7 +278,7 @@ export function Ratings(props) {
                 </div>
             </div>
             <form className = "ratings-button-1" >
-                <button type="submit" className="btn btn-primary" id="submission">Submit Ratings</button>
+                <button type="submit" className="btn btn-primary" id="submission" onClick={() => submitAll()}>Submit Ratings</button>
             </form>
             <form className = "ratings-button-2" method = "get">
                 <button type = "button" className = "btn btn-primary" id = "continue" onClick = {() => navigate('/recommendations')}>Continue</button>
