@@ -104,6 +104,9 @@ export function Ratings(props) {
 
     function displayNews() {
         const newsContainer = document.querySelector('.news');
+        if(newsContainer == null) {
+            return;
+        }
         newsContainer.innerHTML = ''; 
     
         newsQueue.forEach(newsItem => {
@@ -125,19 +128,7 @@ export function Ratings(props) {
         .then(response => response.json())
         .then(data => {
             const articles = data.articles;
-            const newsContainer = document.querySelector('.news');
-    
-            newsContainer.innerHTML = '';
-    
-            articles.sort(() => Math.random() - 0.5);
-    
-            for (let i = 0; i < Math.min(3, articles.length); i++) {
-                const article = articles[i];
-                const newsElement = document.createElement('div');
-                newsElement.classList.add('news-notif');
-                newsElement.textContent = article.title;
-                newsContainer.appendChild(newsElement);
-            }
+            const news = articles.slice(0, 3).map(article => article.title);
         })
         .catch(error => {
             setInterval(() => {

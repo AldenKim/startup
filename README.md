@@ -108,3 +108,13 @@ With all the new streaming services offered on the internet, trying to find good
 - ***Frontend makes WebSocket connection***: The ratings.js file makes WebSocket connection to display if a user has connected, and other user's movie ratings
 - ***Data sent over WebSocket connection***: User's movie ratings are sent of a WebSocket connection
 - ***WebSocket data displayed in the application interface***: Other users can see what movie ratings User's have made. 
+
+## React Deliverable
+- Clone React Simon repository and deployed it with deployment script so it is available with `simon` sub domain (https://simon.mymovierecommendations.click/)
+- Link to GitHub on application front page and others
+- Notes in README.md Files
+- At least 10 git commits
+- ***Bundled Using Vite***: Used vite to bundle and test code throughout the project
+- ***Multiple functional react components***: All pages of the website have been converted to functional react components.
+- ***React Router***: Website uses a react router to navigate between components. 
+- ***React Hooks***: React hooks used in multiple places.  
