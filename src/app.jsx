@@ -45,7 +45,7 @@ export default function App() {
                         setAuthState(authState);
                         setUserName(userName);
                     }}/>} exact/>
-                    <Route path = '/ratings' element = {<Ratings />} />
+                    <Route path = '/ratings' element = {<Ratings userName = {userName}/>} />
                     <Route path = '/recommendations' element = {<Recommendations />} />
                     <Route path = '/watchlist' element = {<Watchlist />} />
                     <Route path = '/about' element = {<About />} />

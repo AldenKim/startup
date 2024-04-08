@@ -1,18 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ratings.css';
+import { useNavigate } from 'react-router-dom';
 
-export function Ratings({recommendationPage}) {
-    const handleRatingSubmit = (event) => {
-        event.preventDefault();
-        // Implement your rating submission logic here
-    }
+export function Ratings(props) {
+    const navigate = useNavigate();
 
     return (
         <main className="ratings-main container-fluid">
             <div className="users">
-                User:
-                <span className="user-name"></span>
+                User: {' '}
+                <span className="user-name">{props.userName}</span>
             </div>
             <div className="notification" id="messages"></div>
             <div className="Updates">
@@ -98,11 +96,11 @@ export function Ratings({recommendationPage}) {
                     </div>
                 </div>
             </div>
-            <form className = "ratings-button-1" onSubmit={handleRatingSubmit}>
+            <form className = "ratings-button-1" >
                 <button type="submit" className="btn btn-primary" id="submission">Submit Ratings</button>
             </form>
             <form className = "ratings-button-2" method = "get">
-                <button type = "button" className = "btn btn-primary" id = "continue" onClick={recommendationPage}>Continue</button>
+                <button type = "button" className = "btn btn-primary" id = "continue" onClick = {() => navigate('/recommendations')}>Continue</button>
             </form>
         </main>
     );
