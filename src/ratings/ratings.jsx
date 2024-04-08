@@ -27,15 +27,15 @@ export function Ratings({recommendationPage}) {
             <br />
             <div className="Checkboxes">
                 <legend>Mark Genres You Like:</legend>
-                <div className="form-check">
+                <div className="ratings-checkboxdiv1 form-check">
                     <input className="ratings-checkbox1 form-check-input" type="checkbox" name="comedyCheckBox" id="comedies" value="Comedy" />
                     <label className="form-check-label" htmlFor="genre1">Comedies</label>
                 </div>
-                <div className="form-check">
+                <div className="ratings-checkboxdiv2 form-check">
                     <input className="ratings-checkbox2 form-check-input" type="checkbox" name="actionCheckBox" id="action" value="Action" />
                     <label className="form-check-label" htmlFor="genre2">Action</label>
                 </div>
-                <div className="form-check">
+                <div className="ratings-checkboxdiv3 form-check">
                     <input className="ratings-checkbox3 form-check-input" type="checkbox" name="romanceCheckBox" id="romance" value="Romance" />
                     <label className="form-check-label" htmlFor="genre3">Romance</label>
                 </div>

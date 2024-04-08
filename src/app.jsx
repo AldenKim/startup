@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login';
-import { Ratings } from './ratings/ratings';
+import { Ratings } from './ratings/ratings.jsx';
 import { Recommendations } from './recommendations/recommendations';
 import { Watchlist } from './watchlist/watchlist';
 import { About } from './about/about';

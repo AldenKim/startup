@@ -149,18 +149,18 @@ export function Watchlist() {
             <div>
                 <h1>Your watchlist</h1>
                 <div className = "option">
-                    <label className = "form-check-label" for = "checkbox1"></label>
-                    <input className  = "form-check-input" type = "checkbox" id = "checkbox1" name="varCheckBox" value= "checkbox1"/>
+                    <label className = "watchlistLabels form-check-label" htmlFor = "checkbox1"></label>
+                    <input className  = "watchlistBoxes form-check-input" type = "checkbox" id = "checkbox1" name="varCheckBox" value= "checkbox1"/>
                 </div>
 
                 <div className = "option">
-                    <label className = "form-check-label" for = "checkbox2"></label>
-                    <input className  = "form-check-input" type = "checkbox" id = "checkbox2" name="varCheckBox" value= "checkbox2"/>
+                    <label className = "watchlistLabels form-check-label" htmlFor = "checkbox2"></label>
+                    <input className  = "watchlistBoxes form-check-input" type = "checkbox" id = "checkbox2" name="varCheckBox" value= "checkbox2"/>
                 </div>
 
                 <div className = "option">
-                    <label className = "form-check-label" for = "checkbox3"></label>
-                    <input className  = "form-check-input" type = "checkbox" id = "checkbox3" name="varCheckBox" value= "checkbox3"/>
+                    <label className = "watchlistLabels form-check-label" htmlFor = "checkbox3"></label>
+                    <input className  = "watchlistBoxes form-check-input" type = "checkbox" id = "checkbox3" name="varCheckBox" value= "checkbox3"/>
                 </div>
             
 

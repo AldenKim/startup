@@ -20,6 +20,9 @@
 .rating-label {
     text-align: start;
 }
+.ratings-checkbox1 {
+    display: inline-block;
+}
 
 main button {
     color: black !important;

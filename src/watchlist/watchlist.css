@@ -32,16 +32,16 @@ main form button:hover{
   background: #108048 !important;
 }
 
-.form-check-input {
+.watchlistBoxes {
   display: none;
 }
 
-.form-check-input:checked{
+.watchlistBoxes:checked{
     background-color: #1ce783 !important;
     border: 0;
 }
 
-.form-check-input:focus, .label::after, label.form-check-label:focus, .form-check-input::after, .form-check-input:not(:disabled):not(.disabled):active:focus {
+.watchlistBoxes:focus, .watchlistLabels::after, label.watchlistLabels:focus, .watchlistBoxes::after, .watchlistBoxes:not(:disabled):not(.disabled):active:focus {
     color: black;
     outline: 0;
     border: 0;
